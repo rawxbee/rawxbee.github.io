@@ -7,7 +7,6 @@
   box-sizing: border-box;
 }
 
-/* Container for flexboxes */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -17,17 +16,12 @@
   content: "";
   flex: 20%;
 }
-
-/* Create four equal columns */
 .column {
   flex: 20%;
   border-radius: 25px;
   background: #fff;
   width: 100%;
 }
-
-
-/* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (max-width: 1000px) {
   .column {
     flex: 100%;
