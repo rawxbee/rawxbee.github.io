@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 8px;
+}
+.row::after {
+  content: "";
+  flex: 25%;
+}
+.column {
+  flex: 25%;
+  border-radius: 25px;
+  background: #fff;
+  width: 100%;
+}
+.space {
+  flex: 25%;
+  border-radius: 25px;
+  background: #34c3ff;
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .column {
+    flex: 100%;
+  }
+}
+html, body {
+  overflow-x: hidden;
+}
+#image1 {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+#heading {
+  width: 50%;
+}
+#logo {
+  width: 5%;
+}
+  @font-face {
+    font-family: BurbankBigCondensed-Bold;
+    src: url("../rawxbee.github.io/BurbankBigCondensed-Bold.otf") format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+.burbig {
+
+    font-family: 'BurbankBigCondensed-Bold', 'Times';
+
+}
+p { margin: 10px; 
+}
+
+</style>
+</head>
+<body style="background-color: #34c3ff;">
+<center>
+
+<img src="https://i.imgur.com/fxxCXBE.png" id="logo">
+<p>
+<img src="https://api.nitestats.com/v1/fnfontgen?text=Matchmaking%20Islands%3A%207&color=ffffff&size=150" id="heading"></p>
+<div class="row">
+<div class="column"><a href="https://www.epicgames.com/fn/6008-0835-5857">
+<img width="100%" src="https://fortnite-island-screenshots-live-cdn.ol.epicgames.com/screenshots/6008-0835-5857.png" id="image1"></a> 
+<p class="burbig" style="font-size:30px">SECTOR 4 - PURSUIT<br>by BENZ4DUCKS</p><p></p><p class="burbig" style="font-size:20px"></p>
+</div>
+<div class="space"></div>
+</div>
+<br>
+<a href="https://github.com/rawxbee/Featured-Database/blob/master/README.md">
+<img src="https://api.nitestats.com/v1/fnfontgen?text=Siri%20Shortcuts%20Info&color=ffffff&size=100" width="20%"></a>
+</body>
+</html>
