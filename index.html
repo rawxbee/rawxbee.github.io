@@ -6,29 +6,81 @@
 * {
   box-sizing: border-box;
 }
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  grid-gap: 8px;
-}
-.row::after {
-  content: "";
-  flex: 20%;
-}
-.column {
-  flex: 20%;
-  border-radius: 25px;
-  background: #fff;
-  width: 100%;
-}
-.space {
+.spaceft {
   flex: 20%;
   border-radius: 25px;
   background: #34c3ff;
   width: 100%;
 }
+.rowft {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 8px;
+}
+.rowft::after {
+  content: "";
+  flex: 20%;
+}
+.columnft {
+  flex: 20%;
+  border-radius: 25px;
+  background: #fff;
+  width: 100%;
+}
 @media screen and (max-width: 1000px) {
-  .column {
+  .columnft {
+    flex: 100%;
+  }
+}
+.spacebr {
+  flex: 30%;
+  border-radius: 25px;
+  background: #34c3ff;
+  width: 100%;
+}
+.rowbr {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 8px;
+}
+.rowbr::after {
+  content: "";
+  flex: 30%;
+}
+.columnbr {
+  flex: 30%;
+  border-radius: 25px;
+  background: #fff;
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .columnbr {
+    flex: 100%;
+  }
+}
+.spacestw {
+  flex: 30%;
+  border-radius: 25px;
+  background: #34c3ff;
+  width: 100%;
+}
+.rowstw {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 8px;
+}
+.rowstw::after {
+  content: "";
+  flex: 30%;
+}
+.columnstw {
+  flex: 30%;
+  border-radius: 25px;
+  background: #fff;
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .columnstw {
     flex: 100%;
   }
 }
@@ -64,36 +116,25 @@ p { margin: 10px;
 <body style="background-color: #34c3ff;">
 <center>
 
-<img src="https://i.imgur.com/MnYLyWl.png" id="logo">
 <p>
-<img src="https://api.nitestats.com/v1/fnfontgen?text=Featured%20Islands%3A%2024&color=ffffff&size=150" id="heading"></p>
-<div class="row">
-<div class="column"><a href="https://i.imgur.com/f5Csyn2.jpg"><img width="100%" src="https://i.imgur.com/f5Csyn2.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">FishBall<br>by SD_Raymix</p><p></p><p class="burbig" style="font-size:20px">Party Game, Minigame, PvP, Teams</p><p></p><p class="burbig" style="font-size:20px">2020-09-06</p> </div>
-<div class="column"><a href="https://i.imgur.com/H8zOodc.jpg"><img width="100%" src="https://i.imgur.com/H8zOodc.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">100 Rooms<br>by HAZZA_5238</p><p></p><p class="burbig" style="font-size:20px">Adventure, Escape, Exploration, Parkour</p><p></p><p class="burbig" style="font-size:20px">2020-09-05</p> </div>
-<div class="column"><a href="https://i.imgur.com/plKbYb4.jpg"><img width="100%" src="https://i.imgur.com/plKbYb4.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Prophunt: The Residence<br>by JohannesSBMW</p><p></p><p class="burbig" style="font-size:20px">Just For Fun, Prop, Prop Hunt</p><p></p><p class="burbig" style="font-size:20px">2020-09-04</p> </div>
-<div class="column"><a href="https://i.imgur.com/zxBELlI.jpg"><img width="100%" src="https://i.imgur.com/zxBELlI.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Dungeon Dodgers<br>by TreyJTH</p><p></p><p class="burbig" style="font-size:20px">Competitive, Action</p><p></p><p class="burbig" style="font-size:20px">2020-09-03</p> </div>
-<div class="column"><a href="https://i.imgur.com/HxPKO9P.jpg"><img width="100%" src="https://i.imgur.com/HxPKO9P.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Musicrun<br>by TroxWe</p><p></p><p class="burbig" style="font-size:20px">Co-Op, Difficulty Medium, Music, Puzzle</p><p></p><p class="burbig" style="font-size:20px">2020-09-02</p> </div>
-<div class="column"><a href="https://i.imgur.com/PFu6Qxv.jpg"><img width="100%" src="https://i.imgur.com/PFu6Qxv.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Llama Master<br>by StrayKiteStudios</p><p></p><p class="burbig" style="font-size:20px">PvP, Free For All, Action, Co-Op</p><p></p><p class="burbig" style="font-size:20px">2020-09-01</p> </div>
-<div class="column"><a href="https://i.imgur.com/nQdrtxY.jpg"><img width="100%" src="https://i.imgur.com/nQdrtxY.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Complete Destruction Royale<br>by prudiz</p><p></p><p class="burbig" style="font-size:20px">Battle Royale, Artistic, Free For All, One Life</p><p></p><p class="burbig" style="font-size:20px">2020-08-31</p> </div>
-<div class="column"><a href="https://i.imgur.com/rpi4zD0.jpg"><img width="100%" src="https://i.imgur.com/rpi4zD0.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">The Daragon Valley<br>by Fw_VeRTiGo</p><p></p><p class="burbig" style="font-size:20px">Attack, Defend, Teams, Objective</p><p></p><p class="burbig" style="font-size:20px">2020-08-30</p> </div>
-<div class="column"><a href="https://i.imgur.com/gljWpSi.jpg"><img width="100%" src="https://i.imgur.com/gljWpSi.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Gamerz's 20 Level Deathrun!<br>by Gamerz Hits</p><p></p><p class="burbig" style="font-size:20px">Deathrun, Difficulty: Medium, Artistic, Minigame</p><p></p><p class="burbig" style="font-size:20px">2020-08-29</p> </div>
-<div class="column"><a href="https://LlamaRescuers"><img width="100%" src="https://i.imgur.com/sMmRpPq.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Llama Rescuers<br>by chasejackman</p><p></p><p class="burbig" style="font-size:20px">Action, Arcade, Collection, Minigame</p><p></p><p class="burbig" style="font-size:20px">2020-08-28</p> </div>
-<div class="column"><a href="https://fn.gg/GalaxyBiomeGunGame"><img width="100%" src="https://i.imgur.com/1iieLMt.png" id="image1"></a> <p class="burbig" style="font-size:30px">Galaxy Biom - Gun Game<br>by punti_</p><p></p><p class="burbig" style="font-size:20px">1v1, Free For All, Gun Fight, Shooter</p><p></p><p class="burbig" style="font-size:20px">2020-08-27</p> </div>
-<div class="column"><a href="https://fn.gg/MatchThePairs"><img width="100%" src="https://i.imgur.com/TkLIx3M.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Match the Pairs!<br>by ekkam04</p><p></p><p class="burbig" style="font-size:20px">Puzzle, Minigame, Skills, Timed</p><p></p><p class="burbig" style="font-size:20px">2020-08-26</p> </div>
-<div class="column"><a href="https://fn.gg/StormSurgePSI"><img width="100%" src="https://i.imgur.com/xjKpK4O.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Storm Surge Psi<br>by MTG_Apollo</p><p></p><p class="burbig" style="font-size:20px">Battle Royale, Casual, PvP, Survival</p><p></p><p class="burbig" style="font-size:20px">2020-08-25</p> </div>
-<div class="column"><a href="https://fn.gg/SunsetCruisePropHunt"><img width="100%" src="https://i.imgur.com/PG0jHou.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Sunset Cruise Prop Hunt<br>by absurditeisdaft</p><p></p><p class="burbig" style="font-size:20px">Hide & Seek, Prop Hunt, PvP, Teams</p><p></p><p class="burbig" style="font-size:20px">2020-08-24</p> </div>
-<div class="column"><a href="https://fn.gg/120WaysToSurvive3"><img width="100%" src="https://i.imgur.com/edBrk0W.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">120 Ways to Die 3.0<br>by FB Boss_YMS</p><p></p><p class="burbig" style="font-size:20px">Deathrun, Difficulty: Easy</p><p></p><p class="burbig" style="font-size:20px">2020-08-23</p> </div>
-<div class="column"><a href="https://fn.gg/PropRacers"><img width="100%" src="https://i.imgur.com/tNEjomy.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Prop Racers<br>by Beariо</p><p></p><p class="burbig" style="font-size:20px">Parkour, Difficulty: Easy, Race, Prop</p><p></p><p class="burbig" style="font-size:20px">2020-08-22</p> </div>
-<div class="column"><a href="http://fn.gg/AquaBeachZoneWars"><img width="100%" src="https://i.imgur.com/0HfWByQ.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Aqua Beach Zonewars<br>by Aqua Tarzan</p><p></p><p class="burbig" style="font-size:20px">Zone Wars, 4v4, 3v3, 2v2</p><p></p><p class="burbig" style="font-size:20px">2020-08-21</p> </div>
-<div class="column"><a href="http://fn.gg/TheLostWarzone"><img width="100%" src="https://i.imgur.com/HevAOqh.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">The Lost Warzone<br>by BootySmurff</p><p></p><p class="burbig" style="font-size:20px">Search & Destroy, Team Deathmatch, One Life, 6v6</p><p></p><p class="burbig" style="font-size:20px">2020-08-20</p> </div>
-<div class="column"><a href="http://fn.gg/FindTheGoldenEgg"><img width="100%" src="https://i.imgur.com/MQBzyXn.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">FIND THE GOLDEN EGG<br>by Wеck</p><p></p><p class="burbig" style="font-size:20px">Artistic, Friendly, Just For Fun, Minigame</p><p></p><p class="burbig" style="font-size:20px">2020-08-19</p> </div>
-<div class="column"><a href="https://fn.gg/UdderChaos"><img width="100%" src="https://i.imgur.com/EYcrSsa.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Udder Chaos<br>by Ender_Bite</p><p></p><p class="burbig" style="font-size:20px">Arcade, Difficulty: Easy, Minigame, Party Game</p><p></p><p class="burbig" style="font-size:20px">2020-08-18</p> </div>
-<div class="column"><a href="https://fn.gg/BoxFightsRobotBattle"><img width="100%" src="https://i.imgur.com/f8t7unt.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">BOX FIGHTS ROBOT BATTLE<br>by adrianfortt</p><p></p><p class="burbig" style="font-size:20px">Box Fight, Practice, 4v4, 2v2</p><p></p><p class="burbig" style="font-size:20px">2020-08-17</p> </div>
-<div class="column"><a href="https://fn.gg/FusionalAwakening"><img width="100%" src="https://i.imgur.com/K0yYjt8.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Fusional Awakening<br>by CreativeFusion</p><p></p><p class="burbig" style="font-size:20px">Adventure, Battle, Boss Battle, Exploration</p><p></p><p class="burbig" style="font-size:20px">2020-08-16</p> </div>
-<div class="column"><a href="https://fn.gg/2PlayerTrainingIsland"><img width="100%" src="https://i.imgur.com/s0et3K8.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">2 Player Training Island<br>by Teadoh</p><p></p><p class="burbig" style="font-size:20px">Aim Course, Edit Course, Training</p><p></p><p class="burbig" style="font-size:20px">2020-08-15</p> </div>
-<div class="column"><a href="https://fn.gg/DefaultNeonRun"><img width="100%" src="https://i.imgur.com/R67RRF5.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Default Neon Deathrun<br>by pxw-jesus</p><p></p><p class="burbig" style="font-size:20px">Deathrun, Difficulty: Easy, Moving, Parkour</p><p></p><p class="burbig" style="font-size:20px">2020-08-14</p> </div>
-<div class="space"></div>
-<div class="space"></div>
+<img src="https://api.nitestats.com/v1/fnfontgen?text=Featured%20Islands&color=ffffff&size=150" id="heading"></p>
+<div class="rowft">
+<div class="columnft"><a href="https://i.imgur.com/f5Csyn2.jpg"><img width="100%" src="https://i.imgur.com/f5Csyn2.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">FishBall<br>by SD_Raymix</p><p></p><p class="burbig" style="font-size:20px">Party Game, Minigame, PvP, Teams</p><p></p><p class="burbig" style="font-size:20px">2020-09-06</p> </div>
+<div class="columnft"><a href="https://i.imgur.com/H8zOodc.jpg"><img width="100%" src="https://i.imgur.com/H8zOodc.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">100 Rooms<br>by HAZZA_5238</p><p></p><p class="burbig" style="font-size:20px">Adventure, Escape, Exploration, Parkour</p><p></p><p class="burbig" style="font-size:20px">2020-09-05</p> </div>
+<div class="columnft"><a href="https://i.imgur.com/plKbYb4.jpg"><img width="100%" src="https://i.imgur.com/plKbYb4.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Prophunt: The Residence<br>by JohannesSBMW</p><p></p><p class="burbig" style="font-size:20px">Just For Fun, Prop, Prop Hunt</p><p></p><p class="burbig" style="font-size:20px">2020-09-04</p> </div>
+<div class="columnft"><a href="https://i.imgur.com/zxBELlI.jpg"><img width="100%" src="https://i.imgur.com/zxBELlI.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Dungeon Dodgers<br>by TreyJTH</p><p></p><p class="burbig" style="font-size:20px">Competitive, Action</p><p></p><p class="burbig" style="font-size:20px">2020-09-03</p> </div>
+</div>
+<p><img src="https://api.nitestats.com/v1/fnfontgen?text=Battle%20royale%20News&color=ffffff&size=150" id="heading"></p>
+<div class="rowbr">
+<div class="columnbr"><img width="100%" src="https://cdn2.unrealengine.com/13br-hulkhands-peely-motd-1920x1080-1920x1080-745253808.jpg" id="image1"><p class="burbig" style="font-size:30px">Hulk Smashers</p><p></p><p class="burbig" style="font-size:20px">Harness the strength of the Hulk as you mine, harvest, and SMASH. </p><p></p> </div>
+<div class="columnbr"><img width="100%" src="https://cdn2.unrealengine.com/14br-tiltedtaxi-motd-1920x1080-1920x1080-891070584.jpg" id="image1"><p class="burbig" style="font-size:30px">Tilted Taxis</p><p></p><p class="burbig" style="font-size:20px">Drive your worst, er, best! Get behind the wheel to complete taxi fares and rule the roads. But stay alert, the streets will get crazy quick.</p><p></p> </div>
+<div class="columnbr"><img width="100%" src="https://cdn2.unrealengine.com/en-13br-fishingbook-motd-1920x1080-1920x1080-891157391.jpg" id="image1"><p class="burbig" style="font-size:30px">Collection Book</p><p></p><p class="burbig" style="font-size:20px">Fill up your o-fish-all Collection Book with dozens of new catches and top your friends' leaderboard!</p><p></p> </div>
+</div>
+<p><img src="https://api.nitestats.com/v1/fnfontgen?text=Save%20The%20World%20News&color=ffffff&size=150" id="heading"></p>
+<div class="rowstw">
+<div class="columnstw"><img width="100%" src="https://cdn2.unrealengine.com/11stw-merma-ken-motd-1024x512-890962720.jpg" id="image1"><p class="burbig" style="font-size:30px">SEASONAL EVENT<br>Mermonster Ken</p><p></p><p class="burbig" style="font-size:20px">A freshwater melee master whose From the Depths perk adds massive damage to up-close combat.</p><p></p> </div>
+<div class="columnstw"><img width="100%" src="https://cdn2.unrealengine.com/11stw-dungeonsstarlight-motd-1024x512-926244121.jpg" id="image1"><p class="burbig" style="font-size:30px">SEASONAL EVENT<br>Dungeons</p><p></p><p class="burbig" style="font-size:20px">Fight monsters, dodge traps, gear up and descend into the depths to confront the raging evil below. Complete Dungeons to unlock Heroes, Candy, a Loading Screen, and more!</p><p></p> </div>
+<div class="columnstw"><img width="100%" src="https://cdn2.unrealengine.com/stw05-social-mythic-outlander-ragnarok-1024x512-1024x512-926318429.png" id="image1"><p class="burbig" style="font-size:30px">EVENT STORE<br>Ragnarok</p><p></p><p class="burbig" style="font-size:20px">The cold harbinger of fate returns! Grab this Hero to unlock the "Slow Your Roll" Team Perk and slow down enemies.</p><p></p> </div>
 </div>
 <br>
 <a href="https://github.com/rawxbee/Featured-Database/blob/master/README.md"><img src="https://api.nitestats.com/v1/fnfontgen?text=Siri%20Shortcuts%20Info&color=ffffff&size=100" width="20%"></a>
