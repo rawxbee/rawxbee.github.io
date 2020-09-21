@@ -2,18 +2,236 @@
 <rss version="2.0">
 
 <channel>
-  <title>W3Schools Home Page</title>
-  <link>https://www.w3schools.com</link>
-  <description>Free web building tutorials</description>
-  <item>
-    <title>RSS Tutorial</title>
-    <link>https://www.w3schools.com/xml/xml_rss.asp</link>
-    <description>New RSS tutorial on W3Schools</description>
+  <title>Featured Islands</title>
+  <link>https://www.rawxbee.github.io</link>
+  <description>Daily featured islands in Fortnite Creative</description>
+<item>
+    <title>Mystical Boxfight by CodeMeep</title>
+    <link>https://i.imgur.com/4Frj8Zx.jpg</link>
+    <description>Boxfight/Competitive/Artistic</description>
+<pubDate>2020-09-20</pubDate>
   </item>
-  <item>
-    <title>XML Tutorial</title>
-    <link>https://www.w3schools.com/xml</link>
-    <description>New XML tutorial on W3Schools</description>
+<item>
+    <title>Someone HACKED me! by Wertandrew</title>
+    <link>https://i.imgur.com/CNdK1kx.jpg</link>
+    <description>Puzzle/Escape/Adventure/Artistic</description>
+<pubDate>2020-09-19</pubDate>
+  </item>
+<item>
+    <title>Llama Launch! by YerkYT</title>
+    <link>https://i.imgur.com/eDQwox1.jpg</link>
+    <description>Party Game/Minigame/Arcade/Race</description>
+<pubDate>2020-09-18</pubDate>
+  </item>
+<item>
+    <title>RTX Treasure Run! by Swiftor</title>
+    <link>https://i.imgur.com/F51BnZh.jpg</link>
+    <description>Collection/Coin/NVIDIA/RTX</description>
+<pubDate>2020-09-17</pubDate>
+  </item>
+<item>
+    <title>The Creekwood Tracks by SundayCW</title>
+    <link>https://i.imgur.com/VWKZH7Z.jpg</link>
+    <description>Horror/Mystery/Series/Story</description>
+<pubDate>2020-09-16</pubDate>
+  </item>
+<item>
+    <title>50 Level Default Escape by TREE FITTYY</title>
+    <link>https://i.imgur.com/UyKorST.jpg</link>
+    <description>Escape/Parkour/Puzzle</description>
+<pubDate>2020-09-15</pubDate>
+  </item>
+<item>
+    <title>Blackheart's Reef by kru6</title>
+    <link>https://i.imgur.com/c5FnUf6.jpg</link>
+    <description>Action/Free For All/Gun Game</description>
+<pubDate>2020-09-14</pubDate>
+  </item>
+<item>
+    <title>Creative Classics - Party Games! by Shride</title>
+    <link>https://i.imgur.com/6HHUuYj.jpg</link>
+    <description>Party Game/Free For All</description>
+<pubDate>2020-09-13</pubDate>
+  </item>
+<item>
+    <title>Spy Games: Deathrun by FCT_-</title>
+    <link>https://i.imgur.com/TFWF0BM.jpg</link>
+    <description>Deathrun/Difficulty: Hard/Story/Stealth</description>
+<pubDate>2020-09-12</pubDate>
+  </item>
+<item>
+    <title>Fire VS Ice - Capture The Flag by SKTTLZ</title>
+    <link>https://i.imgur.com/8AFsPCO.jpg</link>
+    <description>Action/Artistic/Capture The Flag/Teams</description>
+<pubDate>2020-09-11</pubDate>
+  </item>
+<item>
+    <title>Spark Pictures by Spxrk_</title>
+    <link>https://i.imgur.com/CXtFw8z.jpg</link>
+    <description>Gun Game/Competitive/Box Fight/Training</description>
+<pubDate>2020-09-10</pubDate>
+  </item>
+<item>
+    <title>Skaavok Aim Trainer (Chapter 2) by MRKN Donwozi</title>
+    <link>https://i.imgur.com/eIqmtB2.jpg</link>
+    <description>Aim Course/Edit Course/Practice</description>
+<pubDate>2020-09-09</pubDate>
+  </item>
+<item>
+    <title>Four in a Row by jstKamui</title>
+    <link>https://i.imgur.com/JqxBdss.jpg</link>
+    <description>1v1/Board Game/Casual/Just For Fun</description>
+<pubDate>2020-09-08</pubDate>
+  </item>
+<item>
+    <title>Shootout - Snake Creek by HELLRAISERGaming</title>
+    <link>https://i.imgur.com/nPZUHS0.jpg</link>
+    <description>Gun Game/Competitive/Box Fight/Training</description>
+<pubDate>2020-09-07</pubDate>
+  </item>
+<item>
+    <title>FishBall by SD_Raymix</title>
+    <link>https://i.imgur.com/f5Csyn2.jpg</link>
+    <description>Party Game/Minigame/PvP/Teams</description>
+<pubDate>2020-09-06</pubDate>
+  </item>
+<item>
+    <title>100 Rooms by HAZZA_5238</title>
+    <link>https://i.imgur.com/H8zOodc.jpg</link>
+    <description>Adventure/Escape/Exploration/Parkour</description>
+<pubDate>2020-09-05</pubDate>
+  </item>
+<item>
+    <title>Prophunt: The Residence by JohannesSBMW</title>
+    <link>https://i.imgur.com/plKbYb4.jpg</link>
+    <description>Just For Fun/Prop/Prop Hunt</description>
+<pubDate>2020-09-04</pubDate>
+  </item>
+<item>
+    <title>Dungeon Dodgers by TreyJTH</title>
+    <link>https://i.imgur.com/zxBELlI.jpg</link>
+    <description>Competitive/Action</description>
+<pubDate>2020-09-03</pubDate>
+  </item>
+<item>
+    <title>Musicrun by TroxWe</title>
+    <link>https://i.imgur.com/HxPKO9P.jpg</link>
+    <description>Co-Op/Difficulty Medium/Music/Puzzle</description>
+<pubDate>2020-09-02</pubDate>
+  </item>
+<item>
+    <title>Llama Master by StrayKiteStudios</title>
+    <link>https://i.imgur.com/PFu6Qxv.jpg</link>
+    <description>PvP/Free For All/Action/Co-Op</description>
+<pubDate>2020-09-01</pubDate>
+  </item>
+<item>
+    <title>Complete Destruction Royale by prudiz</title>
+    <link>https://i.imgur.com/nQdrtxY.jpg</link>
+    <description>Battle Royale/Artistic/Free For All/One Life</description>
+<pubDate>2020-08-31</pubDate>
+  </item>
+<item>
+    <title>The Daragon Valley by Fw_VeRTiGo</title>
+    <link>https://i.imgur.com/rpi4zD0.jpg</link>
+    <description>Attack/Defend/Teams/Objective</description>
+<pubDate>2020-08-30</pubDate>
+  </item>
+<item>
+    <title>Gamerz's 20 Level Deathrun! by Gamerz Hits</title>
+    <link>https://i.imgur.com/gljWpSi.jpg</link>
+    <description>Deathrun/Difficulty: Medium/Artistic/Minigame</description>
+<pubDate>2020-08-29</pubDate>
+  </item>
+<item>
+    <title>Llama Rescuers by chasejackman</title>
+    <link>https://i.imgur.com/sMmRpPq.jpg</link>
+    <description>Action/Arcade/Collection/Minigame</description>
+<pubDate>2020-08-28</pubDate>
+  </item>
+<item>
+    <title>Galaxy Biom - Gun Game by punti_</title>
+    <link>https://i.imgur.com/1iieLMt.png</link>
+    <description>1v1/Free For All/Gun Fight/Shooter</description>
+<pubDate>2020-08-27</pubDate>
+  </item>
+<item>
+    <title>Match the Pairs! by ekkam04</title>
+    <link>https://i.imgur.com/TkLIx3M.jpg</link>
+    <description>Puzzle/Minigame/Skills/Timed</description>
+<pubDate>2020-08-26</pubDate>
+  </item>
+<item>
+    <title>Storm Surge Psi by MTG_Apollo</title>
+    <link>https://i.imgur.com/xjKpK4O.jpg</link>
+    <description>Battle Royale/Casual/PvP/Survival</description>
+<pubDate>2020-08-25</pubDate>
+  </item>
+<item>
+    <title>Sunset Cruise Prop Hunt by absurditeisdaft</title>
+    <link>https://i.imgur.com/PG0jHou.jpg</link>
+    <description>Hide & Seek/Prop Hunt/PvP/Teams</description>
+<pubDate>2020-08-24</pubDate>
+  </item>
+<item>
+    <title>120 Ways to Die 3.0 by FB Boss_YMS</title>
+    <link>https://i.imgur.com/edBrk0W.jpg</link>
+    <description>Deathrun/Difficulty: Easy</description>
+<pubDate>2020-08-23</pubDate>
+  </item>
+<item>
+    <title>Prop Racers by Beariо</title>
+    <link>https://i.imgur.com/tNEjomy.jpg</link>
+    <description>Parkour/Difficulty: Easy/Race/Prop</description>
+<pubDate>2020-08-22</pubDate>
+  </item>
+<item>
+    <title>Aqua Beach Zonewars by Aqua Tarzan</title>
+    <link>https://i.imgur.com/0HfWByQ.jpg</link>
+    <description>Zone Wars/4v4/3v3/2v2</description>
+<pubDate>2020-08-21</pubDate>
+  </item>
+<item>
+    <title>The Lost Warzone by BootySmurff</title>
+    <link>https://i.imgur.com/HevAOqh.jpg</link>
+    <description>Search & Destroy/Team Deathmatch/One Life/6v6</description>
+<pubDate>2020-08-20</pubDate>
+  </item>
+<item>
+    <title>FIND THE GOLDEN EGG by Wеck</title>
+    <link>https://i.imgur.com/MQBzyXn.jpg</link>
+    <description>Artistic/Friendly/Just For Fun/Minigame</description>
+<pubDate>2020-08-19</pubDate>
+  </item>
+<item>
+    <title>Udder Chaos by Ender_Bite</title>
+    <link>https://i.imgur.com/EYcrSsa.jpg</link>
+    <description>Arcade/Difficulty: Easy/Minigame/Party Game</description>
+<pubDate>2020-08-18</pubDate>
+  </item>
+<item>
+    <title>BOX FIGHTS ROBOT BATTLE by adrianfortt</title>
+    <link>https://i.imgur.com/f8t7unt.jpg</link>
+    <description>Box Fight/Practice/4v4/2v2</description>
+<pubDate>2020-08-17</pubDate>
+  </item>
+<item>
+    <title>Fusional Awakening by CreativeFusion</title>
+    <link>https://i.imgur.com/K0yYjt8.jpg</link>
+    <description>Adventure/Battle/Boss Battle/Exploration</description>
+<pubDate>2020-08-16</pubDate>
+  </item>
+<item>
+    <title>2 Player Training Island by Teadoh</title>
+    <link>https://i.imgur.com/s0et3K8.jpg</link>
+    <description>Aim Course/Edit Course/Training</description>
+<pubDate>2020-08-15</pubDate>
+  </item>
+<item>
+    <title>Default Neon Deathrun by pxw-jesus</title>
+    <link>https://i.imgur.com/R67RRF5.jpg</link>
+    <description>Deathrun/Difficulty: Easy/Moving/Parkour</description>
+<pubDate>2020-08-14</pubDate>
   </item>
 </channel>
 
