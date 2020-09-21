@@ -3,47 +3,17 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {
-  box-sizing: border-box;
-}
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  grid-gap: 8px;
-}
-.row::after {
-  content: "";
-  flex: 20%;
-}
-.column {
-  flex: 20%;
-  border-radius: 25px;
-  background: #fff;
-  width: 100%;
-}
-.space {
-  flex: 20%;
-  border-radius: 25px;
-  background: #34c3ff;
-  width: 100%;
-}
-@media screen and (max-width: 1000px) {
-  .column {
-    flex: 100%;
-  }
 }
 html, body {
   overflow-x: hidden;
 }
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
 #image1 {
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-#heading {
-  width: 30%;
-}
-#logo {
-  width: 5%;
+  border-radius: 25px; 
 }
   @font-face {
     font-family: BurbankBigCondensed-Bold;
@@ -54,6 +24,11 @@ html, body {
 .burbig {
 
     font-family: 'BurbankBigCondensed-Bold', 'Times';
+      position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
 
 }
 p { margin: 10px; 
@@ -63,8 +38,6 @@ p { margin: 10px;
 </head>
 <body style="background-color: #34c3ff;">
 <center>
-<div class="row">
-<div class="column"><a href="https://i.imgur.com/TACTep5.jpg"><img width="100%" src="https://i.imgur.com/TACTep5.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Shotty Snipers: Delta Base<br>by Pr0spartaner</p><p></p><p class="burbig" style="font-size:20px">Sniper, Respawn, Free For All, Competitive</p><p></p><p class="burbig" style="font-size:20px">2020-09-21</p> </div>
-</div>
+<div class="container"><a href="https://i.imgur.com/TACTep5.jpg"><img width="100%" src="https://i.imgur.com/TACTep5.jpg" id="image1"></a> <p class="burbig" style="font-size:30px">Shotty Snipers: Delta Base<br>by Pr0spartaner</p></div>
 </body>
 </html>
