@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 8px;
+}
+.row::after {
+  content: "";
+  flex: 20%;
+}
+.column {
+  flex: 30%;
+  border-radius: 25px;
+  background: #fff;
+  width: 100%;
+  border: 2px double grey;
+}
+.space {
+  flex: 20%;
+  border-radius: 25px;
+  background: transparent;
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .column {
+    flex: 100%;
+  }
+}
+html, body {
+  overflow-x: hidden;
+}
+#image1 {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+#heading {
+  width: 30%;
+}
+#logo {
+  width: 5%;
+}
+  @font-face {
+    font-family: BurbankBigCondensed-Bold;
+    src: url("../rawxbee.github.io/BurbankBigCondensed-Bold.otf") format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+.burbig {
+
+    font-family: 'BurbankBigCondensed-Bold', 'Times';
+
+}
+p { margin: 10px; 
+}
+body {
+  background-image: url("https://i.imgur.com/Q1ImfNW.png");
+  background-repeat: repeat;
+}
+</style>
+</head>
+<body>
+<center>
+<img src="https://api.nitestats.com/v1/fnfontgen?text=Neopets%20Siri%20Shortcuts&color=ffffff&size=150" id="heading"></p>
+<div class="row">
+<div class="column"><img width="100%" src="https://i.imgur.com/pSEwSZj.png" id="image1"> <p class="burbig" style="font-size:30px">Selected Item Search (v1.0)</p><p></p><p class="burbig" style="font-size:20px">Search SDB/Closet/Trades/Auction/Jellyneo for the selected text.</p><p></p><p class="burbig" style="font-size:20px">For Safari Use:<br>For Chrome Use:</p> </div>
+
+<div class="column"><img width="100%" src="https://i.imgur.com/bR5ngI6.png" id="image1"> <p class="burbig" style="font-size:30px">Manual Item Search (v1.0)</p><p></p><p class="burbig" style="font-size:20px">Search SDB/Closet/Trades/Auction/Jellyneo for manually inputted text.</p><p></p><p class="burbig" style="font-size:20px">For Safari Use:<br>For Chrome Use:</p> </div>
+
+<div class="column"><img width="100%" src="https://i.imgur.com/nKsR2xX.png" id="image1"> <p class="burbig" style="font-size:30px">Lunar Temple Solver (v1.0)</p><p></p><p class="burbig" style="font-size:20px">Find the answer to your Lunar Temple puzzle.</p><p></p><p class="burbig" style="font-size:20px">For General Use:</p> </div>
+
+<div class="space"></div>
+<div class="space"></div>
+<div class="space"></div>
+<div class="space"></div>
+</div>
+<br>
+</body>
+</html>
