@@ -41,7 +41,7 @@ text-align: right !important;
   color: white;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 730px) {
     #rats td:nth-child(3),
     #rats th:nth-child(3),
     #rats td:nth-child(4),
@@ -93,24 +93,36 @@ RANK</th>
   var hours = minutes * 60;
   var days = hours * 24;
   var now = new Date();
-  var update = new Date('Thu, 27 May 2021 11:30:15 -0230');
+  var update = new Date('Fri, 28 May 2021 08:38:24 -0230');
   var t = now - update;
-  var w = Math.round(t / seconds);
-  var x = Math.round(t / minutes);
-  var y = Math.round(t / hours);
-  var z = Math.round(t / days);
- 
-    if (w < 60) {
-  document.getElementById("lu").innerHTML = 'Last update: ' + w + ' second(s) ago.';
+  var w = Math.floor(t / seconds);
+  var x = Math.floor(t / minutes);
+  var y = Math.floor(t / hours);
+  var z = Math.floor(t / days);
+
+    if (w == 1) {
+  document.getElementById("lu").innerHTML = 'Last update: ' + w + ' second ago';
 }
-      if (w > 60) {
-  document.getElementById("lu").innerHTML = 'Last update: ' + x + ' minute(s) ago.';
+    if (2 <= w && w < 60) {
+  document.getElementById("lu").innerHTML = 'Last update: ' + w + ' seconds ago';
 }
-    if (x > 60) {
-  document.getElementById("lu").innerHTML = 'Last update: ' + y + ' hour(s) ago.';
+    if (60 <= w && w < 120) {
+  document.getElementById("lu").innerHTML = 'Last update: ' + x + ' minute ago';
 }
-    if (y > 24) {
-  document.getElementById("lu").innerHTML = 'Last update: ' + z + ' day(s) ago.';
+    if (120 <= w && w < 3600) {
+  document.getElementById("lu").innerHTML = 'Last update: ' + x + ' minutes ago';
+}
+    if (3600 <= w && w < 7200) {
+  document.getElementById("lu").innerHTML = 'Last update: ' + y + ' hour ago';
+}
+    if (7200 <= w && w < 86400) {
+  document.getElementById("lu").innerHTML = 'Last update: ' + y + ' hours ago';
+}
+    if (86400 <= w && w < 172800) {
+  document.getElementById("lu").innerHTML = 'Last update: ' + z + ' day ago';
+}
+    if (172800 <= w) {
+  document.getElementById("lu").innerHTML = 'Last update: ' + z + ' days ago';
 }
 </script>
 </body>
