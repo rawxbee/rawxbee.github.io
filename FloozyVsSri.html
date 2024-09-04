@@ -1,0 +1,182 @@
+<html>
+<style>
+body {
+  overflow-x: hidden;
+}
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url("https://sadhost.neocities.org/images/tiles/bck-pnklightning.jpg");
+}
+#image_header {
+  display: block;
+  text-align: center;
+    margin: auto;
+    max-width: 960px;
+    max-height: 540px;
+    overflow: hidden;
+    border: 5px solid black;
+    border-radius: 50px;
+  }
+  .graph_container {
+    display: block;
+    width: 80%;
+    height: 3000px;
+    margin: auto;
+    background: white;
+    border: 5px solid black;
+    border-radius: 50px;
+    padding: 5px 130px 5px 5px;
+  }
+</style>
+
+<body>
+  <audio id="audioID" autoplay loop> <source src="C:\Users\robbi\Downloads\star_strangled_benner.mp3"  type="audio/mp3"></audio>
+
+  <div id="image_header">
+    <img src="https://i.imgur.com/5k4upkI.png" style="width: 100%;"></div>
+    <p></p>
+  <div class="graph_container">
+    <canvas id="acquisitions"></canvas>
+  </div>
+<script>
+var myaudio = document.getElementById("audioID").autoplay = true;
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.umd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/helpers.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
+
+  <script>
+    var data_array = [['jockville', '⚽nubs-council', '🌱narcissus-flower', '🎫wpm-626', '🏃🏾Pokemon GO', '🐀hehe', '🐱becky', '🐶darby', '💪bens-biceps', '💼stonks', '📌General', '📌Marvel-general', '📚song-of-achilles', '📰maga', '😍my-wife-left-me', '🙄smlkh', '🙏worm-worship', '🟩new-york-times', '🤡grin-emoji', '🤳conceit', '🥗homemade-salad', '🥵burger-king-tattoo', '🥵treason', '🧘hula-hooping', '🧠praying-by-kesha'], [150.0, 692.0, 160.0, 224.0, 0.0, 1402.0, 528.0, 143.0, 608.0, 379.0, 373.0, 717.0, 1012.0, 189.0, 349.0, 47.0, 413.0, 32.0, 51.0, 829.0, 981.0, 0.0, 169.0, 1497.0, 1108.0], [61.0, 345.0, 4.0, 35.0, 153.0, 1085.0, 46.0, 73.0, 447.0, 186.0, 186.0, 184.0, 27.0, 274.0, 362.0, 85.0, 414.0, 140.0, 50.0, 425.0, 561.0, 0.0, 106.0, 492.0, 618.0], [1.0, 9.0, 0.0, 7.0, 0.0, 29.0, 6.0, 2.0, 4.0, 1.0, 1.0, 2.0, 4.0, 4.0, 3.0, 0.0, 0.0, 0.0, 1.0, 10.0, 9.0, 0.0, 1.0, 15.0, 9.0], [0.0, 1.0, 0.0, 0.0, 2.0, 15.0, 0.0, 0.0, 5.0, 7.0, 4.0, 2.0, 0.0, 4.0, 6.0, 2.0, 0.0, 7.0, 0.0, 4.0, 4.0, 0.0, 0.0, 2.0, 9.0], [2.0, 7.0, 3.0, 0.0, 0.0, 10.0, 11.0, 2.0, 1.0, 0.0, 5.0, 5.0, 7.0, 1.0, 3.0, 0.0, 0.0, 0.0, 5.0, 11.0, 10.0, 1.0, 0.0, 5.0, 0.0], [2.0, 2.0, 0.0, 0.0, 1.0, 7.0, 2.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0], [11.0, 69.0, 22.0, 22.0, 0.0, 168.0, 61.0, 18.0, 49.0, 42.0, 51.0, 117.0, 121.0, 20.0, 38.0, 6.0, 410.0, 4.0, 6.0, 99.0, 145.0, 1.0, 37.0, 134.0, 68.0], [11.0, 37.0, 1.0, 8.0, 17.0, 128.0, 8.0, 14.0, 41.0, 22.0, 19.0, 29.0, 2.0, 10.0, 10.0, 7.0, 400.0, 20.0, 4.0, 50.0, 73.0, 0.0, 28.0, 55.0, 29.0]]
+
+    Chart.Tooltip.positioners.follow = function (elements, eventPosition) {
+      var tooltip = this;
+      return {
+        x: eventPosition.x,
+        y: eventPosition.y
+      };
+    };
+
+    Chart.register(ChartjsPluginStacked100.default);
+    new Chart(
+      document.getElementById('acquisitions'), {
+      type: 'bar',
+      options: {
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        scales: {
+          x: {
+            grid: {
+              display: true,
+              color: ["rgba(0,0,0,1)"],
+              z: 1
+            },
+            ticks: {
+              stepSize: 50,
+              display: false
+            }
+          },
+          y: {
+            stacked: true,
+            grid: {
+              display: true,
+              color: ["rgba(0,0,0,1)"],
+              z: 1,
+              lineWidth: 2
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false,
+          },
+          stacked100: {
+            enable: true,
+            replaceTooltipLabel: true
+          },
+          tooltip: {
+            interaction: {
+              mode: 'y'
+            },
+            position : 'follow',    
+            callbacks: {
+              label: function(tooltipItem, data) {
+               var label = Math.floor(tooltipItem.yLabel*100)/100+" "+data.datasets[tooltipItem.datasetIndex].label;
+               return label;
+              }
+            }
+          }
+        },
+      },
+
+      data: {
+        labels: data_array[0],
+
+        datasets: [{
+          data: data_array[1],
+          label: "Team Floozy Words",
+          backgroundColor: "#3286df",
+          hoverBackgroundColor: "#2177D4",
+          stack: 0
+        }, {
+          data: data_array[2],
+          label: "Team Sri Words",
+          backgroundColor: "#f1c41c",
+          hoverBackgroundColor: "#E6B70F",
+          stack: 0
+        },
+        {
+          data: data_array[3],
+          label: "Team Floozy Commas",
+          backgroundColor: "#3286df",
+          hoverBackgroundColor: "#2177D4",
+          stack: 1
+        }, {
+          data: data_array[4],
+          label: "Team Sri Commas",
+          backgroundColor: "#f1c41c",
+          hoverBackgroundColor: "#E6B70F",
+          stack: 1
+        },
+        {
+          data: data_array[5],
+          label: "Team Ben Attachments",
+          backgroundColor: "#3286df",
+          hoverBackgroundColor: "#2177D4",
+          stack: 2
+        }, {
+          data: data_array[6],
+          label: "Team Sri Attachments",
+          backgroundColor: "#f1c41c",
+          hoverBackgroundColor: "#E6B70F",
+          stack: 2
+        },
+        {
+          data: data_array[7],
+          label: "Team Ben Messages",
+          backgroundColor: "#3286df",
+          hoverBackgroundColor: "#2177D4",
+          stack: 3
+        }, {
+          data: data_array[8],
+          label: "Team Sri Messages",
+          backgroundColor: "#f1c41c",
+          hoverBackgroundColor: "#E6B70F",
+          stack: 3
+        }
+        ]
+      }
+    }
+    );
+  </script>
+</body>
+
+</html>
