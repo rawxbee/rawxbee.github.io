@@ -37,6 +37,7 @@ body:before {
 </style>
 
 <body>
+  <iframe src="https://github.com/anars/blank-audio/raw/master/1-second-of-silence.mp3" allow="autoplay" id="audio"></iframe>
   <audio id="audioID" autoplay loop> <source src="https://github.com/rawxbee/rawxbee.github.io/raw/master/star_strangled_benner.mp3"  type="audio/mp3"></audio>
 
   <div id="image_header">
@@ -45,9 +46,6 @@ body:before {
   <div class="graph_container">
     <canvas id="acquisitions"></canvas>
   </div>
-<script>
-var myaudio = document.getElementById("audioID").autoplay = true;
-</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.umd.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/helpers.js"></script>
