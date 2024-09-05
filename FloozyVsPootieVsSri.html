@@ -33,7 +33,7 @@ body:before {
     background: white;
     border: 5px solid black;
     border-radius: 50px;
-    padding: 5px 130px 5px 5px;
+    padding: 5px 130px 20px 5px;
   }
   .audio-player {
   --player-button-width: 3em;
@@ -201,6 +201,7 @@ body:before {
  <div style="height: 50px;"></div>
 
     <div class="graph_container">
+      <div style="text-align: right; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Last Update: 2024/09/05</div>
     <canvas id="acquisitions"></canvas>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js"></script>
@@ -271,7 +272,70 @@ soundButton.innerHTML = audio.muted ? muteIcon : soundIcon;
 
 soundButton.addEventListener('click', toggleSound);</script>
   <script>
-    var data_array = [['jockville', '⚽nubs-council', '🌱narcissus-flower', '🎫wpm-626', '🏃🏾Pokemon GO', '🐀hehe', '🐱becky', '🐶darby', '💪bens-biceps', '💼stonks', '📌General', '📌Marvel-general', '📚song-of-achilles', '📰maga', '😍my-wife-left-me', '🙄smlkh', '🙏worm-worship', '�nnew-york-times', '🤡grin-emoji', '🤳conceit', '🥗homemade-salad', '🥵burger-king-tattoo', '🥵treason', '🧘hula-hooping', '🧠praying-by-kesha'], [150.0, 721.0, 200.0, 224.0, 0.0, 1807.0, 576.0, 143.0, 612.0, 393.0, 622.0, 771.0, 1059.0, 333.0, 427.0, 47.0, 451.0, 32.0, 51.0, 833.0, 1026.0, 0.0, 169.0, 1534.0, 1298.0], [61.0, 362.0, 6.0, 35.0, 196.0, 1592.0, 46.0, 73.0, 574.0, 288.0, 203.0, 349.0, 30.0, 354.0, 437.0, 85.0, 457.0, 188.0, 50.0, 426.0, 589.0, 0.0, 106.0, 562.0, 748.0], [0.0, 63.0, 30.0, 51.0, 66.0, 1364.0, 24.0, 153.0, 122.0, 177.0, 123.0, 1128.0, 235.0, 70.0, 67.0, 0.0, 248.0, 92.0, 8.0, 1254.0, 235.0, 0.0, 19.0, 138.0, 235.0], [1.0, 9.0, 0.0, 7.0, 0.0, 32.0, 6.0, 2.0, 4.0, 1.0, 2.0, 2.0, 4.0, 4.0, 3.0, 0.0, 0.0, 0.0, 1.0, 10.0, 12.0, 0.0, 1.0, 15.0, 9.0], [0.0, 1.0, 0.0, 0.0, 2.0, 22.0, 0.0, 0.0, 6.0, 7.0, 4.0, 7.0, 0.0, 6.0, 11.0, 2.0, 0.0, 9.0, 0.0, 4.0, 5.0, 0.0, 0.0, 3.0, 11.0], [0.0, 0.0, 1.0, 0.0, 0.0, 12.0, 0.0, 3.0, 0.0, 1.0, 0.0, 13.0, 2.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0, 16.0, 6.0, 0.0, 0.0, 0.0, 2.0], [2.0, 7.0, 5.0, 0.0, 0.0, 14.0, 13.0, 2.0, 1.0, 0.0, 5.0, 5.0, 7.0, 1.0, 6.0, 0.0, 0.0, 0.0, 5.0, 12.0, 11.0, 1.0, 0.0, 5.0, 0.0], [2.0, 3.0, 0.0, 0.0, 2.0, 10.0, 2.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 1.0, 0.0, 2.0, 0.0, 0.0, 3.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0, 8.0, 0.0, 3.0, 0.0, 0.0, 2.0, 20.0, 2.0, 0.0, 2.0, 0.0, 0.0, 0.0, 4.0, 15.0, 5.0, 0.0, 0.0, 0.0, 1.0], [11.0, 73.0, 24.0, 22.0, 0.0, 217.0, 67.0, 18.0, 50.0, 44.0, 70.0, 126.0, 126.0, 33.0, 50.0, 6.0, 448.0, 4.0, 6.0, 101.0, 152.0, 1.0, 37.0, 140.0, 75.0], [11.0, 39.0, 2.0, 8.0, 23.0, 170.0, 8.0, 14.0, 47.0, 26.0, 20.0, 47.0, 3.0, 15.0, 15.0, 7.0, 443.0, 28.0, 4.0, 51.0, 77.0, 0.0, 28.0, 64.0, 38.0], [0.0, 11.0, 4.0, 8.0, 19.0, 135.0, 3.0, 21.0, 16.0, 15.0, 13.0, 182.0, 25.0, 9.0, 13.0, 0.0, 248.0, 14.0, 6.0, 175.0, 35.0, 0.0, 4.0, 16.0, 15.0]]
+    var data_array = [['jockville', '⚽nubs-council', '🌱narcissus-flower', '🎫wpm-626', '🏃🏾Pokemon GO', '🐀hehe', '🐱becky', '🐶darby', '💪bens-biceps', '💼stonks', '📌General', '📌Marvel-general', '📚song-of-achilles', '📰maga', '😍my-wife-left-me', '🙄smlkh', '🙏worm-worship', '🟩new-york-times', '🤠Taylor Swift', '🤡grin-emoji', '🤳conceit', '🥗homemade-salad', '🥵burger-king-tattoo', '🥵treason', '🧘hula-hooping', '🧠praying-by-kesha'], [150.0, 759.0, 203.0, 224.0, 0.0, 1850.0, 581.0, 163.0, 612.0, 459.0, 818.0, 777.0, 1216.0, 487.0, 454.0, 47.0, 486.0, 32.0, 36.0, 51.0, 856.0, 1099.0, 0.0, 169.0, 1543.0, 1323.0], [61.0, 395.0, 6.0, 35.0, 212.0, 1598.0, 46.0, 73.0, 581.0, 435.0, 273.0, 349.0, 42.0, 1603.0, 447.0, 85.0, 473.0, 188.0, 35.0, 50.0, 442.0, 628.0, 0.0, 106.0, 574.0, 748.0], [0.0, 63.0, 30.0, 51.0, 84.0, 1371.0, 29.0, 156.0, 168.0, 240.0, 140.0, 1135.0, 431.0, 536.0, 72.0, 0.0, 270.0, 92.0, 20.0, 12.0, 1284.0, 275.0, 0.0, 19.0, 138.0, 257.0], [1.0, 9.0, 0.0, 7.0, 0.0, 33.0, 6.0, 2.0, 4.0, 1.0, 6.0, 2.0, 5.0, 4.0, 3.0, 0.0, 0.0, 0.0, 0.0, 1.0, 10.0, 15.0, 0.0, 1.0, 15.0, 10.0], [0.0, 1.0, 0.0, 0.0, 4.0, 22.0, 0.0, 0.0, 6.0, 9.0, 4.0, 7.0, 0.0, 23.0, 11.0, 2.0, 0.0, 9.0, 0.0, 0.0, 4.0, 5.0, 0.0, 0.0, 3.0, 11.0], [0.0, 0.0, 1.0, 0.0, 0.0, 12.0, 0.0, 3.0, 1.0, 1.0, 0.0, 13.0, 2.0, 4.0, 0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 16.0, 6.0, 0.0, 0.0, 0.0, 2.0], [2.0, 8.0, 5.0, 0.0, 0.0, 14.0, 13.0, 2.0, 1.0, 0.0, 6.0, 5.0, 7.0, 1.0, 6.0, 0.0, 0.0, 0.0, 0.0, 5.0, 13.0, 16.0, 1.0, 0.0, 5.0, 0.0], [2.0, 3.0, 0.0, 0.0, 3.0, 10.0, 2.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 3.0, 0.0, 2.0, 0.0, 0.0, 3.0, 0.0], [0.0, 0.0, 0.0, 0.0, 2.0, 8.0, 0.0, 3.0, 0.0, 0.0, 2.0, 20.0, 5.0, 0.0, 2.0, 0.0, 0.0, 0.0, 1.0, 4.0, 16.0, 5.0, 0.0, 0.0, 0.0, 1.0], [11.0, 78.0, 25.0, 22.0, 0.0, 224.0, 68.0, 21.0, 50.0, 52.0, 96.0, 128.0, 158.0, 56.0, 55.0, 6.0, 483.0, 4.0, 4.0, 6.0, 104.0, 158.0, 1.0, 37.0, 141.0, 78.0], [11.0, 43.0, 2.0, 8.0, 25.0, 171.0, 8.0, 14.0, 48.0, 35.0, 27.0, 47.0, 5.0, 118.0, 17.0, 7.0, 459.0, 28.0, 3.0, 6.0, 53.0, 82.0, 0.0, 28.0, 65.0, 38.0], [0.0, 11.0, 4.0, 8.0, 22.0, 136.0, 6.0, 22.0, 23.0, 23.0, 17.0, 185.0, 53.0, 46.0, 15.0, 0.0, 270.0, 14.0, 4.0, 7.0, 179.0, 38.0, 0.0, 4.0, 16.0, 16.0]]
+
+
+    data_array[0].push("ratville")
+
+    var sum_floozy_w = data_array[1].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[1].push(sum_floozy_w)
+
+    var sum_floozy_c = data_array[4].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[4].push(sum_floozy_c)
+
+    var sum_floozy_a = data_array[7].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[7].push(sum_floozy_a)
+
+    var sum_floozy_m = data_array[10].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[10].push(sum_floozy_m)
+
+    var sum_sri_w = data_array[2].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[2].push(sum_sri_w)
+
+    var sum_sri_c = data_array[5].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[5].push(sum_sri_c)
+
+    var sum_sri_a = data_array[8].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[8].push(sum_sri_a)
+
+    var sum_sri_m = data_array[11].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[11].push(sum_sri_m)
+
+    var sum_pootie_w = data_array[3].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[3].push(sum_pootie_w)
+
+    var sum_pootie_c = data_array[6].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[6].push(sum_pootie_c)
+
+    var sum_pootie_a = data_array[9].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[9].push(sum_pootie_a)
+
+    var sum_pootie_m = data_array[12].reduce((accumulator, currentValue) => {
+      return accumulator + currentValue
+    }, 0)
+    data_array[12].push(sum_pootie_m)
 
     Chart.Tooltip.positioners.follow = function (elements, eventPosition) {
       var tooltip = this;
