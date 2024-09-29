@@ -1,485 +1,877 @@
 <html>
-  <head><link rel="icon" type="image/x-icon" href="https://i.imgur.com/cDIEpUU.png"></head>
-  <title>Floozy v. Pootie v. Sri</title>
+
+<head>
+    <link rel="icon" type="image/x-icon" href="https://i.imgur.com/cDIEpUU.png">
+    <title>Floozy v. Pootie v. Sri</title>
+</head>
 <style>
-body {
-  overflow-x: hidden;
-}
-body:before {
-  content: "";
-  display: block;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -10;
-  background: url("https://sadhost.neocities.org/images/tiles/bck-pnklightning.jpg");
-}
-#image_header {
-  display: block;
-  text-align: center;
-    margin: auto;
-    max-width: 960px;
-    max-height: 540px;
-    overflow: hidden;
-    border: 5px solid black;
-    border-radius: 50px;
-  }
-  .graph_container {
-    display: block;
-    width: 80%;
-    height: 3000px;
-    margin: auto;
-    background: white;
-    border: 5px solid black;
-    border-radius: 50px;
-    padding: 5px 130px 20px 5px;
-  }
-  .audio-player {
-  --player-button-width: 3em;
-  --sound-button-width: 2em;
-  --space: .5em;
-  width: 25rem;
-  height: 15rem;
-}
+    body {
+        overflow-x: hidden;
+    }
 
-.icon-container {
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    body:before {
+        content: "";
+        display: block;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        background: url("https://sadhost.neocities.org/images/tiles/bck-pnklightning.jpg");
+    }
 
-.audio-icon {
-   width: 90%;
-   height: 90%;
-}
+    #image_header {
+        display: block;
+        text-align: center;
+        margin: auto;
+        max-width: 960px;
+        max-height: 540px;
+        overflow: hidden;
+        border: 5px solid black;
+        border-radius: 50px;
+    }
 
-.controls {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  margin-top: 10px;
-}
+    .buttons {
+        text-align: center;
+        display: block;
+        top: 0px;
+        width: 80%;
+        height: auto;
+        margin: auto;
+        padding: 20px;
+        position: sticky;
+    }
 
-.player-button {
-  background-color: transparent;
-  border: 0;
-  width: var(--player-button-width);
-  height: var(--player-button-width);
-  cursor: pointer;
-  padding: 0;
-}
+    .button-17 {
+        align-items: center;
+        appearance: none;
+        background-color: #fff;
+        border-radius: 24px;
+        border-style: none;
+        box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px, rgba(0, 0, 0, .14) 0 6px 10px 0, rgba(0, 0, 0, .12) 0 1px 18px 0;
+        box-sizing: border-box;
+        color: #3c4043;
+        cursor: pointer;
+        display: inline-flex;
+        fill: currentcolor;
+        font-family: "Google Sans", Roboto, Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        height: 48px;
+        justify-content: center;
+        letter-spacing: .25px;
+        line-height: normal;
+        max-width: 100%;
+        overflow: visible;
+        padding: 2px 24px;
+        position: relative;
+        text-align: center;
+        text-transform: none;
+        transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1), opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: auto;
+        will-change: transform, opacity;
+        z-index: 0;
+    }
 
-.timeline {
-  -webkit-appearance: none;
-  width: calc(100% - (var(--player-button-width) + var(--sound-button-width) + var(--space)));
-  height: .5em;
-  background-color: #e5e5e5;
-  border-radius: 5px;
-  background-size: 0% 100%;
-  background-image: linear-gradient(#DE5E97, #DE5E97);
-  background-repeat: no-repeat;
-  margin-right: var(--space);
-}
+    .button-17:hover {
+        background: #F6F9FE;
+        color: #174ea6;
+    }
 
-.timeline::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  transition: all .1s;
-  background-color: #a94672;
-}
+    .button-17:active {
+        box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+        outline: none;
+    }
 
-.timeline::-moz-range-thumb {
-  -webkit-appearance: none;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  transition: all .1s;
-  background-color: #a94672;
-}
+    .button-17:focus {
+        outline: none;
+        border: 2px solid #4285f4;
+    }
 
-.timeline::-ms-thumb {
-  -webkit-appearance: none;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0;
-  transition: all .1s;
-  background-color: #a94672;
-}
+    .button-17:not(:disabled) {
+        box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+    }
 
-.timeline::-webkit-slider-thumb:hover {
-  background-color: #943f65;
-}
+    .button-17:not(:disabled):hover {
+        box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+    }
 
-.timeline:hover::-webkit-slider-thumb {
-  opacity: 1;
-}
+    .button-17:not(:disabled):focus {
+        box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+    }
 
-.timeline::-moz-range-thumb:hover {
-  background-color: #943f65;
-}
+    .button-17:not(:disabled):active {
+        box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+    }
 
-.timeline:hover::-moz-range-thumb {
-  opacity: 1;
-}
+    .button-17:disabled {
+        box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+    }
 
-.timeline::-ms-thumb:hover {
-  background-color: #943f65;
-}
+    .graph_container {
+        display: block;
+        width: 80%;
+        height: 3000px;
+        margin: auto;
+        background: white;
+        border: 5px solid black;
+        border-radius: 50px;
+        padding: 5px 130px 20px 5px;
+    }
 
-.timeline:hover::-ms-thumb {
-  opacity: 1;
-}
+    .audio-player {
+        --player-button-width: 3em;
+        --sound-button-width: 2em;
+        --space: .5em;
+        width: 25rem;
+        height: 15rem;
+    }
 
-.timeline::-webkit-slider-runnable-track {
-  -webkit-appearance: none;
-  box-shadow: none;
-  border: none;
-  background: transparent;
-}
+    .icon-container {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.timeline::-moz-range-track {
-  -webkit-appearance: none;
-  box-shadow: none;
-  border: none;
-  background: transparent;
-}
+    .audio-icon {
+        width: 90%;
+        height: 90%;
+    }
 
-.timeline::-ms-track {
-  -webkit-appearance: none;
-  box-shadow: none;
-  border: none;
-  background: transparent;
-}
+    .controls {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+    }
 
-.sound-button {
-  background-color: transparent;
-  border: 0;
-  width: var(--sound-button-width);
-  height: var(--sound-button-width);
-  cursor: pointer;
-  padding: 0;
-}
+    .player-button {
+        background-color: transparent;
+        border: 0;
+        width: var(--player-button-width);
+        height: var(--player-button-width);
+        cursor: pointer;
+        padding: 0;
+    }
 
+    .timeline {
+        -webkit-appearance: none;
+        width: calc(100% - (var(--player-button-width) + var(--sound-button-width) + var(--space)));
+        height: .5em;
+        background-color: #e5e5e5;
+        border-radius: 5px;
+        background-size: 0% 100%;
+        background-image: linear-gradient(#DE5E97, #DE5E97);
+        background-repeat: no-repeat;
+        margin-right: var(--space);
+    }
+
+    .timeline::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        transition: all .1s;
+        background-color: #a94672;
+    }
+
+    .timeline::-moz-range-thumb {
+        -webkit-appearance: none;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        transition: all .1s;
+        background-color: #a94672;
+    }
+
+    .timeline::-ms-thumb {
+        -webkit-appearance: none;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        transition: all .1s;
+        background-color: #a94672;
+    }
+
+    .timeline::-webkit-slider-thumb:hover {
+        background-color: #943f65;
+    }
+
+    .timeline:hover::-webkit-slider-thumb {
+        opacity: 1;
+    }
+
+    .timeline::-moz-range-thumb:hover {
+        background-color: #943f65;
+    }
+
+    .timeline:hover::-moz-range-thumb {
+        opacity: 1;
+    }
+
+    .timeline::-ms-thumb:hover {
+        background-color: #943f65;
+    }
+
+    .timeline:hover::-ms-thumb {
+        opacity: 1;
+    }
+
+    .timeline::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+
+    .timeline::-moz-range-track {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+
+    .timeline::-ms-track {
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+
+    .sound-button {
+        background-color: transparent;
+        border: 0;
+        width: var(--sound-button-width);
+        height: var(--sound-button-width);
+        cursor: pointer;
+        padding: 0;
+    }
 </style>
 
-<body><p>
+<body>
+    <p>
     <div class="audio-player" style="margin: auto;">
-      <div class="icon-container">
-        <svg xmlns="http://www.w3.org/2000/svg" class="audio-icon" viewBox="0 0 20 20" fill="currentColor">
-      <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
-    </svg><img src="https://i.imgur.com/5k4upkI.png" style="width: 100%; margin: auto; border: 1px solid black;">
-      </div>
-      <audio loop src="https://github.com/rawxbee/rawxbee.github.io/raw/master/star_strangled_benner.mp3"></audio>
-      <div class="controls">
-        <button class="player-button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
-      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-    </svg>
-        </button>
-        <input type="range" class="timeline" max="100" value="0">
-        <button class="sound-button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
-      <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd" />
-    </svg>
-        </button>
-      </div>
+        <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" class="audio-icon" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                    d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+            </svg><img src="https://i.imgur.com/5k4upkI.png"
+                style="width: 100%; margin: auto; border: 1px solid black;">
+        </div>
+        <audio loop src="https://github.com/rawxbee/rawxbee.github.io/raw/master/star_strangled_benner.mp3"></audio>
+        <div class="controls">
+            <button class="player-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+                    <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+            <input type="range" class="timeline" max="100" value="0">
+            <button class="sound-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
+                    <path fill-rule="evenodd"
+                        d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
     </div>
-  </p>
- <div style="height: 50px;"></div>
-
+    </p>
+    <div style="height: 30px;"></div>
+    <div class="buttons">
+        <input type="button" value="All" id="wall" class="button-17" onclick="updateAll()">
+        <input type="button" value="Week 1" id="w1" class="button-17" onclick="updateW1()">
+        <input type="button" value="Week 2" id="w2" class="button-17" onclick="updateW2()">
+        <input type="button" value="Week 3" id="w3" class="button-17" onclick="updateW3()">
+        <input type="button" value="Week 4" id="w4" class="button-17" onclick="updateW4()">
+    </div>
     <div class="graph_container">
-      <div style="text-align: right; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">2024/09/16 - 2024/09/22</div>
-    <canvas id="acquisitions"></canvas>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.umd.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/helpers.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
-<script>const playerButton = document.querySelector('.player-button'),
-  audio = document.querySelector('audio'),
-  timeline = document.querySelector('.timeline'),
-  soundButton = document.querySelector('.sound-button'),
-  playIcon = `
+        <div id="date"
+            style="text-align: right; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+            2024/09/01 - 2024/09/29</div>
+        <canvas id="graph"></canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/helpers.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
+    <script>const playerButton = document.querySelector('.player-button'),
+            audio = document.querySelector('audio'),
+            timeline = document.querySelector('.timeline'),
+            soundButton = document.querySelector('.sound-button'),
+            playIcon = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
 </svg>
   `,
-  pauseIcon = `
+            pauseIcon = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
 </svg>
   `,
-  soundIcon = `
+            soundIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
 <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd" />
 </svg>`,
-  muteIcon = `
+            muteIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#3D3132">
 <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM12.293 7.293a1 1 0 011.414 0L15 8.586l1.293-1.293a1 1 0 111.414 1.414L16.414 10l1.293 1.293a1 1 0 01-1.414 1.414L15 11.414l-1.293 1.293a1 1 0 01-1.414-1.414L13.586 10l-1.293-1.293a1 1 0 010-1.414z" clip-rule="evenodd" />
 </svg>`;
 
-function toggleAudio () {
-if (audio.paused) {
-audio.play();
-playerButton.innerHTML = pauseIcon;
-} else {
-audio.pause();
-playerButton.innerHTML = playIcon;
-}
-}
-
-playerButton.addEventListener('click', toggleAudio);
-
-function changeTimelinePosition () {
-const percentagePosition = (100*audio.currentTime) / audio.duration;
-timeline.style.backgroundSize = `${percentagePosition}% 100%`;
-timeline.value = percentagePosition;
-}
-
-audio.ontimeupdate = changeTimelinePosition;
-
-function audioEnded () {
-playerButton.innerHTML = playIcon;
-}
-
-audio.onended = audioEnded;
-
-function changeSeek () {
-const time = (timeline.value * audio.duration) / 100;
-audio.currentTime = time;
-}
-
-timeline.addEventListener('change', changeSeek);
-
-function toggleSound () {
-audio.muted = !audio.muted;
-soundButton.innerHTML = audio.muted ? muteIcon : soundIcon;
-}
-
-soundButton.addEventListener('click', toggleSound);</script>
-  <script>
-    var data_array = [['jockville', '⚽sparkle-fonts', '❄GILMORE GIRLS', '🌱narcissus-flower', '🎫626-wpm', '🐀englicious', '🐱opal', '🐶darby', '💪bens-biceps', '💼embezzling', '📌Marvel-general', '📌Media-General', '📌VG-General', '📚song-of-achilles', '📰maga', '😍my-wife-left-me', '🙄smlkh', '🙏self-worship', '🟩new-york-times', '🤖trolling', '🤠Taylor Swift', '🤡grin-emoji', '🤳conceit', '🥗dunkin', '🥵burger-king-tattoo', '🥵dang-tobias', '🧘hula-hooping', '🧠praying-by-kesha'], [135.0, 476.0, 0.0, 8.0, 117.0, 2286.0, 404.0, 278.0, 2172.0, 1755.0, 990.0, 2475.0, 483.0, 596.0, 1755.0, 279.0, 413.0, 83.0, 0.0, 0.0, 380.0, 256.0, 315.0, 2717.0, 40.0, 206.0, 2042.0, 1017.0], [120.0, 270.0, 155.0, 9.0, 88.0, 1899.0, 216.0, 62.0, 1167.0, 1476.0, 568.0, 2943.0, 90.0, 312.0, 5944.0, 412.0, 228.0, 196.0, 307.0, 0.0, 390.0, 377.0, 947.0, 1630.0, 49.0, 541.0, 2805.0, 1172.0], [0.0, 8.0, 139.0, 2.0, 28.0, 667.0, 96.0, 269.0, 326.0, 344.0, 1051.0, 38.0, 5.0, 88.0, 574.0, 167.0, 142.0, 149.0, 159.0, 47.0, 223.0, 60.0, 150.0, 250.0, 27.0, 498.0, 351.0, 132.0], [2.0, 4.0, 0.0, 0.0, 1.0, 28.0, 3.0, 4.0, 20.0, 18.0, 6.0, 28.0, 5.0, 12.0, 24.0, 9.0, 5.0, 0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 41.0, 0.0, 0.0, 21.0, 11.0], [3.0, 2.0, 0.0, 0.0, 1.0, 14.0, 3.0, 0.0, 16.0, 16.0, 16.0, 43.0, 0.0, 7.0, 77.0, 14.0, 2.0, 0.0, 11.0, 0.0, 5.0, 4.0, 7.0, 7.0, 0.0, 12.0, 29.0, 15.0], [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 7.0, 2.0, 2.0, 2.0, 0.0, 0.0, 0.0, 5.0, 1.0, 0.0, 0.0, 7.0, 2.0, 1.0, 0.0, 3.0, 2.0, 0.0, 10.0, 2.0, 0.0], [0.0, 5.0, 0.0, 3.0, 0.0, 17.0, 5.0, 0.0, 11.0, 1.0, 7.0, 9.0, 9.0, 3.0, 22.0, 1.0, 1.0, 0.0, 0.0, 0.0, 6.0, 27.0, 0.0, 12.0, 14.0, 0.0, 8.0, 3.0], [0.0, 0.0, 2.0, 1.0, 0.0, 7.0, 16.0, 2.0, 3.0, 2.0, 0.0, 7.0, 2.0, 1.0, 9.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 18.0, 9.0, 26.0, 10.0, 0.0, 8.0, 1.0], [0.0, 0.0, 0.0, 1.0, 0.0, 4.0, 13.0, 0.0, 1.0, 3.0, 44.0, 2.0, 0.0, 2.0, 4.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 4.0, 0.0, 1.0, 0.0, 1.0], [10.0, 52.0, 0.0, 5.0, 19.0, 268.0, 54.0, 26.0, 204.0, 173.0, 136.0, 296.0, 59.0, 54.0, 181.0, 28.0, 47.0, 83.0, 0.0, 0.0, 39.0, 61.0, 50.0, 369.0, 20.0, 56.0, 241.0, 88.0], [15.0, 34.0, 17.0, 2.0, 13.0, 189.0, 42.0, 5.0, 87.0, 120.0, 74.0, 242.0, 13.0, 32.0, 374.0, 35.0, 15.0, 196.0, 37.0, 0.0, 20.0, 42.0, 108.0, 206.0, 19.0, 142.0, 236.0, 61.0], [0.0, 4.0, 21.0, 2.0, 4.0, 91.0, 13.0, 20.0, 34.0, 46.0, 191.0, 9.0, 1.0, 9.0, 48.0, 22.0, 27.0, 149.0, 23.0, 4.0, 31.0, 10.0, 23.0, 32.0, 5.0, 132.0, 55.0, 12.0]]
-
-
-    data_array[0].push("ratville")
-
-    var sum_floozy_w = data_array[1].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[1].push(sum_floozy_w)
-
-    var sum_floozy_c = data_array[4].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[4].push(sum_floozy_c)
-
-    var sum_floozy_a = data_array[7].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[7].push(sum_floozy_a)
-
-    var sum_floozy_m = data_array[10].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[10].push(sum_floozy_m)
-
-    var sum_sri_w = data_array[2].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[2].push(sum_sri_w)
-
-    var sum_sri_c = data_array[5].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[5].push(sum_sri_c)
-
-    var sum_sri_a = data_array[8].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[8].push(sum_sri_a)
-
-    var sum_sri_m = data_array[11].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[11].push(sum_sri_m)
-
-    var sum_pootie_w = data_array[3].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[3].push(sum_pootie_w)
-
-    var sum_pootie_c = data_array[6].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[6].push(sum_pootie_c)
-
-    var sum_pootie_a = data_array[9].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[9].push(sum_pootie_a)
-
-    var sum_pootie_m = data_array[12].reduce((accumulator, currentValue) => {
-      return accumulator + currentValue
-    }, 0)
-    data_array[12].push(sum_pootie_m)
-
-    Chart.Tooltip.positioners.follow = function (elements, eventPosition) {
-      var tooltip = this;
-      return {
-        x: eventPosition.x,
-        y: eventPosition.y
-      };
-    };
-
-    Chart.register(ChartjsPluginStacked100.default);
-    new Chart(
-      document.getElementById('acquisitions'), {
-      type: 'bar',
-      options: {
-        maintainAspectRatio: false,
-        indexAxis: 'y',
-        scales: {
-          x: {
-            grid: {
-              display: true,
-              color: ["rgba(0,0,0,1)"],
-              z: 1
-            },
-            ticks: {
-              stepSize: 50,
-              display: false
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playerButton.innerHTML = pauseIcon;
+            } else {
+                audio.pause();
+                playerButton.innerHTML = playIcon;
             }
-          },
-          y: {
-            stacked: true,
-            grid: {
-              display: true,
-              color: ["rgba(0,0,0,1)"],
-              z: 1,
-              lineWidth: 2
-            }
-          }
-        },
-        plugins: {
-          legend: {
-            display: false,
-          },
-          stacked100: {
-            enable: true,
-            replaceTooltipLabel: true
-          },
-          tooltip: {
-            interaction: {
-              mode: 'y'
-            },
-            position : 'follow',    
-            callbacks: {
-              label: function(tooltipItem, data) {
-               var label = Math.floor(tooltipItem.yLabel*100)/100+" "+data.datasets[tooltipItem.datasetIndex].label;
-               return label;
-              }
-            }
-          }
-        },
-      },
-
-      data: {
-        labels: data_array[0],
-
-        datasets: [{
-          data: data_array[1],
-          label: "Team Floozy Words",
-          backgroundColor: "rgba(0, 200, 255, 0.5)",
-          hoverBackgroundColor: "rgba(0, 200, 255, 1)",
-          stack: 0
-        }, {
-          data: data_array[3],
-          label: "Team Pootie Words",
-          backgroundColor: "rgba(233, 30, 99, 0.5)",
-          hoverBackgroundColor: "rgba(233, 30, 99, 1)",
-          stack: 0
-        }, {
-          data: data_array[2],
-          label: "Team Sri Words",
-          backgroundColor: "rgba(241, 196, 15, 0.5)",
-          hoverBackgroundColor: "rgba(241, 196, 15, 1)",
-          stack: 0
-        }, {
-          data: data_array[4],
-          label: "Team Floozy Commas",
-          backgroundColor: "rgba(0, 200, 255, 0.5)",
-          hoverBackgroundColor: "rgba(0, 200, 255, 1)",
-          stack: 1
-        }, {
-          data: data_array[6],
-          label: "Team Pootie Commas",
-          backgroundColor: "rgba(233, 30, 99, 0.5)",
-          hoverBackgroundColor: "rgba(233, 30, 99, 1)",
-          stack: 1
-        }, {
-          data: data_array[5],
-          label: "Team Sri Commas",
-          backgroundColor: "rgba(241, 196, 15, 0.5)",
-          hoverBackgroundColor: "rgba(241, 196, 15, 1)",
-          stack: 1
-        }, {
-          data: data_array[7],
-          label: "Team Floozy Attachments",
-          backgroundColor: "rgba(0, 200, 255, 0.5)",
-          hoverBackgroundColor: "rgba(0, 200, 255, 1)",
-          stack: 2
-        }, {
-          data: data_array[9],
-          label: "Team Pootie Attachments",
-          backgroundColor: "rgba(233, 30, 99, 0.5)",
-          hoverBackgroundColor: "rgba(233, 30, 99, 1)",
-          stack: 2
-        }, {
-          data: data_array[8],
-          label: "Team Sri Attachments",
-          backgroundColor: "rgba(241, 196, 15, 0.5)",
-          hoverBackgroundColor: "rgba(241, 196, 15, 1)",
-          stack: 2
-        },
-        {
-          data: data_array[10],
-          label: "Team Floozy Messages",
-          backgroundColor: "rgba(0, 200, 255, 0.5)",
-          hoverBackgroundColor: "rgba(0, 200, 255, 1)",
-          stack: 3
-        }, {
-          data: data_array[12],
-          label: "Team Pootie Messages",
-          backgroundColor: "rgba(233, 30, 99, 0.5)",
-          hoverBackgroundColor: "rgba(233, 30, 99, 1)",
-          stack: 3
-        }, {
-          data: data_array[11],
-          label: "Team Sri Messages",
-          backgroundColor: "rgba(241, 196, 15, 0.5)",
-          hoverBackgroundColor: "rgba(241, 196, 15, 1)",
-          stack: 3
         }
-        ]
-      }
-    }
-    );
-  </script>
+
+        playerButton.addEventListener('click', toggleAudio);
+
+        function changeTimelinePosition() {
+            const percentagePosition = (100 * audio.currentTime) / audio.duration;
+            timeline.style.backgroundSize = `${percentagePosition}% 100%`;
+            timeline.value = percentagePosition;
+        }
+
+        audio.ontimeupdate = changeTimelinePosition;
+
+        function audioEnded() {
+            playerButton.innerHTML = playIcon;
+        }
+
+        audio.onended = audioEnded;
+
+        function changeSeek() {
+            const time = (timeline.value * audio.duration) / 100;
+            audio.currentTime = time;
+        }
+
+        timeline.addEventListener('change', changeSeek);
+
+        function toggleSound() {
+            audio.muted = !audio.muted;
+            soundButton.innerHTML = audio.muted ? muteIcon : soundIcon;
+        }
+
+        soundButton.addEventListener('click', toggleSound);</script>
+    <script>
+        /// All
+        var data_array = [['jockville', '⚽sparkle-fonts', '❄GILMORE GIRLS', '🌱sunflowr', '🎫type', '🏃🏾Pokemon GO', '🐀englicious', '🐱opal', '🐶darby', '💪bens-biceps', '💼embezzling', '📌Marvel-general', '📌Media-General', '📌VG-General', '📚song-of-achilles', '📰maga', '😍my-wife-left-me', '🙄smlkh', '🙏worm-worship', '🟩new-york-times', '🤖pootie-antics', '🤠Taylor Swift', '🤡grin-emoji', '🤳fit-check', '🥗dunkin', '🥵blush-emoji', '🥵dang-tobias', '🧘museum-going', '🧠downclown'], [1020.0, 6568.0, 0.0, 271.0, 6494.0, 0.0, 12008.0, 2110.0, 1171.0, 5439.0, 5078.0, 2212.0, 6137.0, 3252.0, 3831.0, 7315.0, 2775.0, 1325.0, 2104.0, 102.0, 32.0, 662.0, 1160.0, 3122.0, 13171.0, 624.0, 1137.0, 9611.0, 3911.0], [1157.0, 7864.0, 1070.0, 15.0, 5354.0, 350.0, 8777.0, 983.0, 279.0, 3433.0, 4210.0, 1378.0, 7395.0, 175.0, 1247.0, 22250.0, 2603.0, 697.0, 1732.0, 1272.0, 14.0, 688.0, 1269.0, 2691.0, 7601.0, 590.0, 1217.0, 10589.0, 3937.0], [0.0, 2478.0, 2064.0, 43.0, 5793.0, 174.0, 6943.0, 565.0, 890.0, 1161.0, 3017.0, 3746.0, 954.0, 451.0, 796.0, 2792.0, 1864.0, 968.0, 868.0, 668.0, 115.0, 412.0, 545.0, 2636.0, 2728.0, 337.0, 1613.0, 2210.0, 592.0], [5.0, 77.0, 0.0, 0.0, 50.0, 0.0, 114.0, 13.0, 9.0, 50.0, 56.0, 9.0, 74.0, 19.0, 58.0, 78.0, 33.0, 22.0, 0.0, 1.0, 0.0, 2.0, 6.0, 43.0, 145.0, 1.0, 13.0, 100.0, 40.0], [13.0, 145.0, 1.0, 0.0, 53.0, 7.0, 94.0, 12.0, 2.0, 30.0, 41.0, 27.0, 114.0, 0.0, 15.0, 401.0, 60.0, 6.0, 0.0, 51.0, 0.0, 6.0, 12.0, 26.0, 64.0, 8.0, 25.0, 120.0, 53.0], [0.0, 26.0, 8.0, 1.0, 28.0, 0.0, 30.0, 2.0, 11.0, 8.0, 31.0, 32.0, 1.0, 2.0, 6.0, 22.0, 15.0, 11.0, 0.0, 31.0, 2.0, 1.0, 5.0, 32.0, 24.0, 0.0, 35.0, 37.0, 4.0], [3.0, 61.0, 0.0, 12.0, 29.0, 0.0, 48.0, 63.0, 14.0, 26.0, 14.0, 14.0, 37.0, 39.0, 16.0, 57.0, 14.0, 2.0, 0.0, 1.0, 0.0, 13.0, 85.0, 24.0, 73.0, 50.0, 0.0, 28.0, 9.0], [6.0, 37.0, 3.0, 1.0, 18.0, 3.0, 25.0, 27.0, 5.0, 7.0, 8.0, 2.0, 17.0, 2.0, 11.0, 36.0, 4.0, 0.0, 0.0, 3.0, 0.0, 7.0, 59.0, 15.0, 50.0, 28.0, 1.0, 45.0, 5.0], [0.0, 9.0, 2.0, 1.0, 12.0, 2.0, 35.0, 17.0, 12.0, 6.0, 3.0, 69.0, 7.0, 1.0, 10.0, 15.0, 8.0, 1.0, 0.0, 0.0, 0.0, 4.0, 16.0, 20.0, 26.0, 4.0, 3.0, 26.0, 3.0], [93.0, 668.0, 0.0, 42.0, 1164.0, 0.0, 1265.0, 249.0, 141.0, 540.0, 465.0, 319.0, 710.0, 337.0, 376.0, 728.0, 293.0, 136.0, 2101.0, 13.0, 6.0, 100.0, 220.0, 353.0, 1711.0, 127.0, 302.0, 1084.0, 263.0], [153.0, 738.0, 177.0, 4.0, 717.0, 45.0, 782.0, 120.0, 44.0, 282.0, 339.0, 171.0, 607.0, 20.0, 105.0, 1323.0, 195.0, 60.0, 1709.0, 172.0, 4.0, 55.0, 148.0, 277.0, 902.0, 75.0, 307.0, 976.0, 196.0], [0.0, 309.0, 260.0, 8.0, 1022.0, 35.0, 707.0, 62.0, 112.0, 149.0, 262.0, 495.0, 130.0, 50.0, 90.0, 246.0, 191.0, 96.0, 868.0, 100.0, 11.0, 74.0, 92.0, 318.0, 364.0, 33.0, 432.0, 330.0, 48.0]]
+
+        data_array[0].push("ratville")
+        var sum_floozy_w = data_array[1].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[1].push(sum_floozy_w)
+        var sum_floozy_c = data_array[4].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[4].push(sum_floozy_c)
+        var sum_floozy_a = data_array[7].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[7].push(sum_floozy_a)
+        var sum_floozy_m = data_array[10].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[10].push(sum_floozy_m)
+        var sum_sri_w = data_array[2].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[2].push(sum_sri_w)
+        var sum_sri_c = data_array[5].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[5].push(sum_sri_c)
+        var sum_sri_a = data_array[8].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[8].push(sum_sri_a)
+        var sum_sri_m = data_array[11].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[11].push(sum_sri_m)
+        var sum_pootie_w = data_array[3].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[3].push(sum_pootie_w)
+        var sum_pootie_c = data_array[6].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[6].push(sum_pootie_c)
+        var sum_pootie_a = data_array[9].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[9].push(sum_pootie_a)
+        var sum_pootie_m = data_array[12].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array[12].push(sum_pootie_m)
+
+        /// Week 1
+        var data_array_week_1 = [['jockville', '⚽nubs-council', '❄GILMORE GIRLS', '🌱narcissus-flower', '🎫wpm-626', '🏃🏾Pokemon GO', '🐀hehe', '🐱becky', '🐶darby', '💪bens-biceps', '💼stonks', '📌Marvel-general', '📌Media-General', '📌VG-General', '📚song-of-achilles', '📰maga', '😍my-wife-left-me', '🙄smlkh', '🙏worm-worship', '🟩new-york-times', '🤠Taylor Swift', '🤡grin-emoji', '🤳conceit', '🥗homemade-salad', '🥵burger-king-tattoo', '🥵treason', '🧘hula-hooping', '🧠praying-by-kesha'], [298.0, 970.0, 0.0, 205.0, 224.0, 0.0, 2546.0, 660.0, 480.0, 755.0, 834.0, 850.0, 1187.0, 1823.0, 1252.0, 749.0, 801.0, 128.0, 1206.0, 102.0, 46.0, 828.0, 1124.0, 2282.0, 423.0, 169.0, 2924.0, 1479.0], [198.0, 772.0, 811.0, 6.0, 35.0, 266.0, 1859.0, 116.0, 93.0, 592.0, 703.0, 356.0, 1272.0, 3.0, 42.0, 2640.0, 1003.0, 222.0, 814.0, 397.0, 61.0, 429.0, 596.0, 1656.0, 254.0, 106.0, 1933.0, 911.0], [0.0, 192.0, 1752.0, 31.0, 51.0, 104.0, 2054.0, 252.0, 393.0, 221.0, 313.0, 1298.0, 247.0, 431.0, 442.0, 781.0, 822.0, 209.0, 337.0, 160.0, 48.0, 286.0, 1974.0, 847.0, 258.0, 19.0, 452.0, 299.0], [1.0, 10.0, 0.0, 0.0, 7.0, 0.0, 42.0, 6.0, 4.0, 5.0, 6.0, 2.0, 18.0, 10.0, 5.0, 8.0, 7.0, 0.0, 0.0, 1.0, 0.0, 15.0, 11.0, 22.0, 1.0, 1.0, 38.0, 12.0], [0.0, 9.0, 1.0, 0.0, 0.0, 6.0, 24.0, 0.0, 0.0, 7.0, 13.0, 7.0, 22.0, 0.0, 0.0, 41.0, 24.0, 3.0, 0.0, 19.0, 0.0, 4.0, 5.0, 11.0, 2.0, 0.0, 8.0, 14.0], [0.0, 2.0, 8.0, 1.0, 0.0, 0.0, 17.0, 2.0, 3.0, 1.0, 1.0, 14.0, 0.0, 2.0, 2.0, 5.0, 6.0, 1.0, 0.0, 8.0, 0.0, 2.0, 26.0, 8.0, 0.0, 0.0, 4.0, 2.0], [3.0, 11.0, 0.0, 6.0, 0.0, 0.0, 19.0, 22.0, 3.0, 4.0, 2.0, 5.0, 5.0, 16.0, 7.0, 4.0, 9.0, 0.0, 0.0, 1.0, 1.0, 24.0, 14.0, 23.0, 14.0, 0.0, 6.0, 2.0], [3.0, 7.0, 1.0, 0.0, 0.0, 3.0, 10.0, 4.0, 1.0, 0.0, 0.0, 2.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 3.0, 2.0, 10.0, 1.0, 5.0, 2.0, 0.0, 10.0, 1.0], [0.0, 0.0, 2.0, 0.0, 0.0, 2.0, 11.0, 2.0, 3.0, 0.0, 0.0, 20.0, 2.0, 1.0, 5.0, 1.0, 5.0, 0.0, 0.0, 0.0, 1.0, 5.0, 18.0, 11.0, 1.0, 0.0, 3.0, 1.0], [27.0, 108.0, 0.0, 27.0, 22.0, 0.0, 302.0, 87.0, 63.0, 63.0, 92.0, 138.0, 128.0, 184.0, 163.0, 88.0, 99.0, 17.0, 1203.0, 13.0, 8.0, 80.0, 137.0, 325.0, 62.0, 37.0, 280.0, 97.0], [33.0, 96.0, 148.0, 2.0, 8.0, 33.0, 205.0, 24.0, 17.0, 50.0, 55.0, 49.0, 115.0, 1.0, 5.0, 188.0, 62.0, 21.0, 800.0, 58.0, 9.0, 25.0, 75.0, 200.0, 22.0, 28.0, 202.0, 54.0], [0.0, 29.0, 218.0, 5.0, 8.0, 24.0, 212.0, 20.0, 59.0, 33.0, 33.0, 203.0, 33.0, 45.0, 56.0, 66.0, 82.0, 22.0, 337.0, 24.0, 10.0, 44.0, 248.0, 117.0, 14.0, 4.0, 61.0, 19.0]]
+
+        data_array_week_1[0].push("ratville")
+        var sum_floozy_w = data_array_week_1[1].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[1].push(sum_floozy_w)
+        var sum_floozy_c = data_array_week_1[4].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[4].push(sum_floozy_c)
+        var sum_floozy_a = data_array_week_1[7].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[7].push(sum_floozy_a)
+        var sum_floozy_m = data_array_week_1[10].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[10].push(sum_floozy_m)
+        var sum_sri_w = data_array_week_1[2].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[2].push(sum_sri_w)
+        var sum_sri_c = data_array_week_1[5].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[5].push(sum_sri_c)
+        var sum_sri_a = data_array_week_1[8].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[8].push(sum_sri_a)
+        var sum_sri_m = data_array_week_1[11].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[11].push(sum_sri_m)
+        var sum_pootie_w = data_array_week_1[3].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[3].push(sum_pootie_w)
+        var sum_pootie_c = data_array_week_1[6].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[6].push(sum_pootie_c)
+        var sum_pootie_a = data_array_week_1[9].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[9].push(sum_pootie_a)
+        var sum_pootie_m = data_array_week_1[12].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_1[12].push(sum_pootie_m)
+
+        /// Week 2
+        var data_array_week_2 = [['jockville', '⚽sparkle-fonts', '❄GILMORE GIRLS', '🌱narcissus-flower', '🎫type', '🐀englicious', '🐱opal', '🐶darby', '💪bens-biceps', '💼embezzling', '📌Marvel-general', '📌Media-General', '📌VG-General', '📚song-of-achilles', '📰maga', '😍my-wife-left-me', '🙄door-difficulties', '🙏self-worship', '🟩new-york-times', '🤖trolling', '🤠Taylor Swift', '🤡floozy-tattoo', '🤳conceit', '🥗dunkin', '🥵burger-king-tattoo', '🧘hula-hooping', '🧠praying-by-kesha'], [432.0, 1472.0, 0.0, 8.0, 5586.0, 2787.0, 830.0, 114.0, 786.0, 1446.0, 2.0, 877.0, 283.0, 438.0, 2800.0, 822.0, 155.0, 699.0, 0.0, 19.0, 218.0, 206.0, 1497.0, 4058.0, 129.0, 1485.0, 1015.0], [596.0, 2186.0, 56.0, 0.0, 5032.0, 1637.0, 427.0, 54.0, 640.0, 669.0, 0.0, 1603.0, 0.0, 380.0, 7305.0, 989.0, 78.0, 483.0, 195.0, 7.0, 233.0, 288.0, 1010.0, 1681.0, 29.0, 847.0, 650.0], [0.0, 586.0, 151.0, 10.0, 5372.0, 2397.0, 165.0, 33.0, 91.0, 1546.0, 1.0, 273.0, 7.0, 101.0, 1290.0, 382.0, 159.0, 212.0, 174.0, 67.0, 78.0, 143.0, 390.0, 679.0, 35.0, 271.0, 81.0], [1.0, 11.0, 0.0, 0.0, 33.0, 8.0, 3.0, 0.0, 12.0, 19.0, 0.0, 7.0, 1.0, 5.0, 25.0, 12.0, 3.0, 0.0, 0.0, 0.0, 0.0, 2.0, 32.0, 42.0, 0.0, 12.0, 16.0], [8.0, 30.0, 0.0, 0.0, 50.0, 7.0, 5.0, 0.0, 1.0, 5.0, 0.0, 19.0, 0.0, 5.0, 152.0, 21.0, 0.0, 0.0, 8.0, 0.0, 1.0, 3.0, 14.0, 17.0, 0.0, 11.0, 11.0], [0.0, 5.0, 0.0, 0.0, 26.0, 4.0, 0.0, 0.0, 0.0, 23.0, 0.0, 0.0, 0.0, 2.0, 9.0, 2.0, 1.0, 0.0, 6.0, 0.0, 0.0, 3.0, 3.0, 6.0, 0.0, 2.0, 2.0], [0.0, 26.0, 0.0, 3.0, 23.0, 2.0, 21.0, 10.0, 1.0, 4.0, 0.0, 3.0, 8.0, 2.0, 11.0, 0.0, 1.0, 0.0, 0.0, 0.0, 5.0, 18.0, 2.0, 10.0, 14.0, 6.0, 0.0], [2.0, 10.0, 0.0, 0.0, 18.0, 2.0, 4.0, 0.0, 0.0, 3.0, 0.0, 5.0, 0.0, 8.0, 15.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.0, 16.0, 2.0, 5.0, 7.0, 3.0, 0.0], [0.0, 3.0, 0.0, 0.0, 12.0, 4.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 8.0, 2.0, 0.0, 0.0, 0.0, 0.0, 2.0, 5.0, 0.0, 6.0, 1.0, 3.0, 0.0], [43.0, 165.0, 0.0, 5.0, 996.0, 246.0, 68.0, 17.0, 80.0, 102.0, 1.0, 97.0, 31.0, 47.0, 257.0, 75.0, 14.0, 699.0, 0.0, 4.0, 45.0, 48.0, 136.0, 492.0, 32.0, 170.0, 49.0], [68.0, 245.0, 6.0, 0.0, 667.0, 126.0, 33.0, 7.0, 52.0, 70.0, 0.0, 137.0, 0.0, 28.0, 466.0, 67.0, 9.0, 483.0, 25.0, 3.0, 25.0, 44.0, 75.0, 188.0, 14.0, 81.0, 22.0], [0.0, 100.0, 14.0, 1.0, 916.0, 182.0, 18.0, 7.0, 12.0, 120.0, 1.0, 40.0, 1.0, 14.0, 117.0, 26.0, 13.0, 212.0, 25.0, 6.0, 22.0, 23.0, 30.0, 80.0, 8.0, 42.0, 9.0]]
+
+        data_array_week_2[0].push("ratville")
+        var sum_floozy_w = data_array_week_2[1].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[1].push(sum_floozy_w)
+        var sum_floozy_c = data_array_week_2[4].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[4].push(sum_floozy_c)
+        var sum_floozy_a = data_array_week_2[7].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[7].push(sum_floozy_a)
+        var sum_floozy_m = data_array_week_2[10].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[10].push(sum_floozy_m)
+        var sum_sri_w = data_array_week_2[2].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[2].push(sum_sri_w)
+        var sum_sri_c = data_array_week_2[5].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[5].push(sum_sri_c)
+        var sum_sri_a = data_array_week_2[8].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[8].push(sum_sri_a)
+        var sum_sri_m = data_array_week_2[11].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[11].push(sum_sri_m)
+        var sum_pootie_w = data_array_week_2[3].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[3].push(sum_pootie_w)
+        var sum_pootie_c = data_array_week_2[6].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[6].push(sum_pootie_c)
+        var sum_pootie_a = data_array_week_2[9].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[9].push(sum_pootie_a)
+        var sum_pootie_m = data_array_week_2[12].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_2[12].push(sum_pootie_m)
+
+        /// Week 3
+        var data_array_week_3 = [['jockville', '⚽sparkle-fonts', '❄GILMORE GIRLS', '🌱narcissus-flower', '🎫626-wpm', '🐀englicious', '🐱opal', '🐶darby', '💪bens-biceps', '💼embezzling', '📌Marvel-general', '📌Media-General', '📌VG-General', '📚song-of-achilles', '📰maga', '😍my-wife-left-me', '🙄smlkh', '🙏self-worship', '🟩new-york-times', '🤖trolling', '🤠Taylor Swift', '🤡grin-emoji', '🤳conceit', '🥗dunkin', '🥵burger-king-tattoo', '🥵dang-tobias', '🧘hula-hooping', '🧠praying-by-kesha'], [135.0, 476.0, 0.0, 8.0, 117.0, 2286.0, 404.0, 278.0, 2172.0, 1755.0, 990.0, 2475.0, 483.0, 596.0, 1755.0, 279.0, 413.0, 83.0, 0.0, 0.0, 380.0, 256.0, 315.0, 2717.0, 40.0, 206.0, 2042.0, 1017.0], [120.0, 270.0, 155.0, 9.0, 88.0, 1899.0, 216.0, 62.0, 1167.0, 1476.0, 568.0, 2943.0, 90.0, 312.0, 5944.0, 412.0, 228.0, 196.0, 307.0, 0.0, 390.0, 377.0, 947.0, 1630.0, 49.0, 541.0, 2805.0, 1172.0], [0.0, 8.0, 139.0, 2.0, 28.0, 667.0, 96.0, 269.0, 326.0, 344.0, 1051.0, 38.0, 5.0, 88.0, 574.0, 167.0, 142.0, 149.0, 159.0, 47.0, 223.0, 60.0, 150.0, 250.0, 27.0, 498.0, 351.0, 132.0], [2.0, 4.0, 0.0, 0.0, 1.0, 28.0, 3.0, 4.0, 20.0, 18.0, 6.0, 28.0, 5.0, 12.0, 24.0, 9.0, 5.0, 0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 41.0, 0.0, 0.0, 21.0, 11.0], [3.0, 2.0, 0.0, 0.0, 1.0, 14.0, 3.0, 0.0, 16.0, 16.0, 16.0, 43.0, 0.0, 7.0, 77.0, 14.0, 2.0, 0.0, 11.0, 0.0, 5.0, 4.0, 7.0, 7.0, 0.0, 12.0, 29.0, 15.0], [0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 7.0, 2.0, 2.0, 2.0, 0.0, 0.0, 0.0, 5.0, 1.0, 0.0, 0.0, 7.0, 2.0, 1.0, 0.0, 3.0, 2.0, 0.0, 10.0, 2.0, 0.0], [0.0, 5.0, 0.0, 3.0, 0.0, 17.0, 5.0, 0.0, 11.0, 1.0, 7.0, 9.0, 9.0, 3.0, 22.0, 1.0, 1.0, 0.0, 0.0, 0.0, 6.0, 27.0, 0.0, 12.0, 14.0, 0.0, 8.0, 3.0], [0.0, 0.0, 2.0, 1.0, 0.0, 7.0, 16.0, 2.0, 3.0, 2.0, 0.0, 7.0, 2.0, 1.0, 9.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 18.0, 9.0, 26.0, 10.0, 0.0, 8.0, 1.0], [0.0, 0.0, 0.0, 1.0, 0.0, 4.0, 13.0, 0.0, 1.0, 3.0, 44.0, 2.0, 0.0, 2.0, 4.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 4.0, 0.0, 1.0, 0.0, 1.0], [10.0, 52.0, 0.0, 5.0, 19.0, 268.0, 54.0, 26.0, 204.0, 173.0, 136.0, 296.0, 59.0, 54.0, 181.0, 28.0, 47.0, 83.0, 0.0, 0.0, 39.0, 61.0, 50.0, 369.0, 20.0, 56.0, 241.0, 88.0], [15.0, 34.0, 17.0, 2.0, 13.0, 189.0, 42.0, 5.0, 87.0, 120.0, 74.0, 242.0, 13.0, 32.0, 374.0, 35.0, 15.0, 196.0, 37.0, 0.0, 20.0, 42.0, 108.0, 206.0, 19.0, 142.0, 236.0, 61.0], [0.0, 4.0, 21.0, 2.0, 4.0, 91.0, 13.0, 20.0, 34.0, 46.0, 191.0, 9.0, 1.0, 9.0, 48.0, 22.0, 27.0, 149.0, 23.0, 4.0, 31.0, 10.0, 23.0, 32.0, 5.0, 132.0, 55.0, 12.0]]
+
+        data_array_week_3[0].push("ratville")
+        var sum_floozy_w = data_array_week_3[1].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[1].push(sum_floozy_w)
+        var sum_floozy_c = data_array_week_3[4].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[4].push(sum_floozy_c)
+        var sum_floozy_a = data_array_week_3[7].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[7].push(sum_floozy_a)
+        var sum_floozy_m = data_array_week_3[10].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[10].push(sum_floozy_m)
+        var sum_sri_w = data_array_week_3[2].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[2].push(sum_sri_w)
+        var sum_sri_c = data_array_week_3[5].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[5].push(sum_sri_c)
+        var sum_sri_a = data_array_week_3[8].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[8].push(sum_sri_a)
+        var sum_sri_m = data_array_week_3[11].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[11].push(sum_sri_m)
+        var sum_pootie_w = data_array_week_3[3].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[3].push(sum_pootie_w)
+        var sum_pootie_c = data_array_week_3[6].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[6].push(sum_pootie_c)
+        var sum_pootie_a = data_array_week_3[9].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[9].push(sum_pootie_a)
+        var sum_pootie_m = data_array_week_3[12].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_3[12].push(sum_pootie_m)
+
+        /// Week 4
+        var data_array_week_4 = [['jockville', '⚽sparkle-fonts', '❄GILMORE GIRLS', '🌱sunflowr', '🎫type', '🐀englicious', '🐱opal', '🐶darby', '💪bens-biceps', '💼embezzling', '📌Marvel-general', '📌Media-General', '📌VG-General', '📚song-of-achilles', '📰maga', '😍my-wife-left-me', '🙄smlkh', '🙏worm-worship', '🟩new-york-times', '🤖pootie-antics', '🤠Taylor Swift', '🤡grin-emoji', '🤳fit-check', '🥗dunkin', '🥵blush-emoji', '🥵dang-tobias', '🧘museum-going', '🧠downclown'], [61.0, 3189.0, 0.0, 49.0, 557.0, 3591.0, 205.0, 277.0, 1668.0, 1043.0, 370.0, 1064.0, 651.0, 748.0, 1442.0, 525.0, 196.0, 51.0, 0.0, 13.0, 3.0, 68.0, 155.0, 3891.0, 30.0, 27.0, 3088.0, 278.0], [47.0, 4231.0, 35.0, 0.0, 199.0, 2123.0, 224.0, 20.0, 1034.0, 1362.0, 454.0, 1174.0, 75.0, 454.0, 5864.0, 107.0, 135.0, 161.0, 283.0, 7.0, 4.0, 122.0, 104.0, 2161.0, 258.0, 0.0, 4774.0, 937.0], [0.0, 1682.0, 11.0, 0.0, 342.0, 1206.0, 24.0, 96.0, 518.0, 814.0, 1396.0, 258.0, 1.0, 138.0, 110.0, 198.0, 54.0, 102.0, 107.0, 1.0, 23.0, 22.0, 92.0, 809.0, 12.0, 67.0, 1042.0, 59.0], [0.0, 46.0, 0.0, 0.0, 9.0, 26.0, 1.0, 1.0, 13.0, 13.0, 1.0, 11.0, 3.0, 8.0, 17.0, 3.0, 9.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 38.0, 0.0, 6.0, 29.0, 0.0], [1.0, 92.0, 0.0, 0.0, 2.0, 27.0, 4.0, 0.0, 6.0, 7.0, 4.0, 22.0, 0.0, 3.0, 123.0, 0.0, 1.0, 0.0, 10.0, 0.0, 0.0, 1.0, 0.0, 21.0, 6.0, 0.0, 66.0, 9.0], [0.0, 19.0, 0.0, 0.0, 2.0, 3.0, 0.0, 0.0, 4.0, 5.0, 16.0, 1.0, 0.0, 2.0, 3.0, 2.0, 2.0, 0.0, 7.0, 0.0, 0.0, 0.0, 0.0, 6.0, 0.0, 3.0, 28.0, 0.0], [0.0, 17.0, 0.0, 0.0, 6.0, 4.0, 11.0, 1.0, 9.0, 6.0, 2.0, 20.0, 6.0, 3.0, 20.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 12.0, 7.0, 26.0, 8.0, 0.0, 8.0, 3.0], [0.0, 18.0, 0.0, 0.0, 0.0, 6.0, 3.0, 2.0, 4.0, 3.0, 0.0, 3.0, 0.0, 2.0, 9.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 6.0, 0.0, 10.0, 8.0, 0.0, 24.0, 2.0], [0.0, 6.0, 0.0, 0.0, 0.0, 14.0, 1.0, 1.0, 4.0, 0.0, 5.0, 2.0, 0.0, 1.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 1.0, 0.0, 18.0, 0.0], [5.0, 313.0, 0.0, 4.0, 125.0, 375.0, 34.0, 30.0, 188.0, 97.0, 44.0, 148.0, 60.0, 76.0, 164.0, 60.0, 22.0, 51.0, 0.0, 2.0, 2.0, 19.0, 24.0, 491.0, 11.0, 4.0, 380.0, 18.0], [7.0, 329.0, 4.0, 0.0, 29.0, 197.0, 21.0, 8.0, 93.0, 94.0, 48.0, 89.0, 5.0, 34.0, 272.0, 21.0, 10.0, 152.0, 41.0, 1.0, 1.0, 26.0, 11.0, 255.0, 19.0, 0.0, 438.0, 49.0], [0.0, 172.0, 3.0, 0.0, 94.0, 165.0, 6.0, 11.0, 69.0, 63.0, 100.0, 30.0, 1.0, 9.0, 8.0, 22.0, 6.0, 102.0, 19.0, 1.0, 3.0, 8.0, 13.0, 107.0, 4.0, 30.0, 158.0, 6.0]]
+
+        data_array_week_4[0].push("ratville")
+        var sum_floozy_w = data_array_week_4[1].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[1].push(sum_floozy_w)
+        var sum_floozy_c = data_array_week_4[4].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[4].push(sum_floozy_c)
+        var sum_floozy_a = data_array_week_4[7].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[7].push(sum_floozy_a)
+        var sum_floozy_m = data_array_week_4[10].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[10].push(sum_floozy_m)
+        var sum_sri_w = data_array_week_4[2].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[2].push(sum_sri_w)
+        var sum_sri_c = data_array_week_4[5].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[5].push(sum_sri_c)
+        var sum_sri_a = data_array_week_4[8].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[8].push(sum_sri_a)
+        var sum_sri_m = data_array_week_4[11].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[11].push(sum_sri_m)
+        var sum_pootie_w = data_array_week_4[3].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[3].push(sum_pootie_w)
+        var sum_pootie_c = data_array_week_4[6].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[6].push(sum_pootie_c)
+        var sum_pootie_a = data_array_week_4[9].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[9].push(sum_pootie_a)
+        var sum_pootie_m = data_array_week_4[12].reduce((accumulator, currentValue) => {
+            return accumulator + currentValue
+        }, 0)
+        data_array_week_4[12].push(sum_pootie_m)
+
+        Chart.Tooltip.positioners.follow = function (elements, eventPosition) {
+            var tooltip = this;
+            return {
+                x: eventPosition.x,
+                y: eventPosition.y
+            };
+        };
+
+        Chart.register(ChartjsPluginStacked100.default);
+        const graph = new Chart(
+            document.getElementById('graph'), {
+            type: 'bar',
+            options: {
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        grid: {
+                            display: true,
+                            color: ["rgba(0,0,0,1)"],
+                            z: 1
+                        },
+                        ticks: {
+                            stepSize: 50,
+                            display: false
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        grid: {
+                            display: true,
+                            color: ["rgba(0,0,0,1)"],
+                            z: 1,
+                            lineWidth: 2
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                    },
+                    stacked100: {
+                        enable: true,
+                        replaceTooltipLabel: true
+                    },
+                    tooltip: {
+                        interaction: {
+                            mode: 'y'
+                        },
+                        position: 'follow',
+                        callbacks: {
+                            label: function (tooltipItem, data) {
+                                var label = Math.floor(tooltipItem.yLabel * 100) / 100 + " " + data.datasets[tooltipItem.datasetIndex].label;
+                                return label;
+                            }
+                        }
+                    }
+                },
+            },
+
+            data: {
+                labels: data_array[0],
+
+                datasets: [{
+                    data: data_array[1],
+                    label: "Team Floozy Words",
+                    backgroundColor: "rgba(0, 200, 255, 0.5)",
+                    hoverBackgroundColor: "rgba(0, 200, 255, 1)",
+                    stack: 0
+                }, {
+                    data: data_array[3],
+                    label: "Team Pootie Words",
+                    backgroundColor: "rgba(233, 30, 99, 0.5)",
+                    hoverBackgroundColor: "rgba(233, 30, 99, 1)",
+                    stack: 0
+                }, {
+                    data: data_array[2],
+                    label: "Team Sri Words",
+                    backgroundColor: "rgba(241, 196, 15, 0.5)",
+                    hoverBackgroundColor: "rgba(241, 196, 15, 1)",
+                    stack: 0
+                }, {
+                    data: data_array[4],
+                    label: "Team Floozy Commas",
+                    backgroundColor: "rgba(0, 200, 255, 0.5)",
+                    hoverBackgroundColor: "rgba(0, 200, 255, 1)",
+                    stack: 1
+                }, {
+                    data: data_array[6],
+                    label: "Team Pootie Commas",
+                    backgroundColor: "rgba(233, 30, 99, 0.5)",
+                    hoverBackgroundColor: "rgba(233, 30, 99, 1)",
+                    stack: 1
+                }, {
+                    data: data_array[5],
+                    label: "Team Sri Commas",
+                    backgroundColor: "rgba(241, 196, 15, 0.5)",
+                    hoverBackgroundColor: "rgba(241, 196, 15, 1)",
+                    stack: 1
+                }, {
+                    data: data_array[7],
+                    label: "Team Floozy Attachments",
+                    backgroundColor: "rgba(0, 200, 255, 0.5)",
+                    hoverBackgroundColor: "rgba(0, 200, 255, 1)",
+                    stack: 2
+                }, {
+                    data: data_array[9],
+                    label: "Team Pootie Attachments",
+                    backgroundColor: "rgba(233, 30, 99, 0.5)",
+                    hoverBackgroundColor: "rgba(233, 30, 99, 1)",
+                    stack: 2
+                }, {
+                    data: data_array[8],
+                    label: "Team Sri Attachments",
+                    backgroundColor: "rgba(241, 196, 15, 0.5)",
+                    hoverBackgroundColor: "rgba(241, 196, 15, 1)",
+                    stack: 2
+                },
+                {
+                    data: data_array[10],
+                    label: "Team Floozy Messages",
+                    backgroundColor: "rgba(0, 200, 255, 0.5)",
+                    hoverBackgroundColor: "rgba(0, 200, 255, 1)",
+                    stack: 3
+                }, {
+                    data: data_array[12],
+                    label: "Team Pootie Messages",
+                    backgroundColor: "rgba(233, 30, 99, 0.5)",
+                    hoverBackgroundColor: "rgba(233, 30, 99, 1)",
+                    stack: 3
+                }, {
+                    data: data_array[11],
+                    label: "Team Sri Messages",
+                    backgroundColor: "rgba(241, 196, 15, 0.5)",
+                    hoverBackgroundColor: "rgba(241, 196, 15, 1)",
+                    stack: 3
+                }
+                ]
+            }
+        }
+        );
+    </script>
+    <script>
+        function updateAll() {
+            document.getElementById("date").innerHTML = "2024/09/01 - 2024/09/29";
+            graph.data.labels = data_array[0];
+            graph.data.datasets[0].data = data_array[1];
+            graph.data.datasets[1].data = data_array[3];
+            graph.data.datasets[2].data = data_array[2];
+            graph.data.datasets[3].data = data_array[4];
+            graph.data.datasets[4].data = data_array[6];
+            graph.data.datasets[5].data = data_array[5];
+            graph.data.datasets[6].data = data_array[7];
+            graph.data.datasets[7].data = data_array[9];
+            graph.data.datasets[8].data = data_array[8];
+            graph.data.datasets[9].data = data_array[10];
+            graph.data.datasets[10].data = data_array[12];
+            graph.data.datasets[11].data = data_array[11];
+            graph.update();
+        }
+
+        function updateW1() {
+            document.getElementById("date").innerHTML = "2024/09/01 - 2024/09/07";
+            graph.data.labels = data_array_week_1[0];
+            graph.data.datasets[0].data = data_array_week_1[1];
+            graph.data.datasets[1].data = data_array_week_1[3];
+            graph.data.datasets[2].data = data_array_week_1[2];
+            graph.data.datasets[3].data = data_array_week_1[4];
+            graph.data.datasets[4].data = data_array_week_1[6];
+            graph.data.datasets[5].data = data_array_week_1[5];
+            graph.data.datasets[6].data = data_array_week_1[7];
+            graph.data.datasets[7].data = data_array_week_1[9];
+            graph.data.datasets[8].data = data_array_week_1[8];
+            graph.data.datasets[9].data = data_array_week_1[10];
+            graph.data.datasets[10].data = data_array_week_1[12];
+            graph.data.datasets[11].data = data_array_week_1[11];
+            graph.update();
+        }
+
+        function updateW2() {
+            document.getElementById("date").innerHTML = "2024/09/09 - 2024/09/14";
+            graph.data.labels = data_array_week_2[0];
+            graph.data.datasets[0].data = data_array_week_2[1];
+            graph.data.datasets[1].data = data_array_week_2[3];
+            graph.data.datasets[2].data = data_array_week_2[2];
+            graph.data.datasets[3].data = data_array_week_2[4];
+            graph.data.datasets[4].data = data_array_week_2[6];
+            graph.data.datasets[5].data = data_array_week_2[5];
+            graph.data.datasets[6].data = data_array_week_2[7];
+            graph.data.datasets[7].data = data_array_week_2[9];
+            graph.data.datasets[8].data = data_array_week_2[8];
+            graph.data.datasets[9].data = data_array_week_2[10];
+            graph.data.datasets[10].data = data_array_week_2[12];
+            graph.data.datasets[11].data = data_array_week_2[11];
+            graph.update();
+        }
+
+        function updateW3() {
+            document.getElementById("date").innerHTML = "2024/09/16 - 2024/09/21";
+            graph.data.labels = data_array_week_3[0];
+            graph.data.datasets[0].data = data_array_week_3[1];
+            graph.data.datasets[1].data = data_array_week_3[3];
+            graph.data.datasets[2].data = data_array_week_3[2];
+            graph.data.datasets[3].data = data_array_week_3[4];
+            graph.data.datasets[4].data = data_array_week_3[6];
+            graph.data.datasets[5].data = data_array_week_3[5];
+            graph.data.datasets[6].data = data_array_week_3[7];
+            graph.data.datasets[7].data = data_array_week_3[9];
+            graph.data.datasets[8].data = data_array_week_3[8];
+            graph.data.datasets[9].data = data_array_week_3[10];
+            graph.data.datasets[10].data = data_array_week_3[12];
+            graph.data.datasets[11].data = data_array_week_3[11];
+            graph.update();
+        }
+
+        function updateW4() {
+            document.getElementById("date").innerHTML = "2024/09/23 - 2024/09/28";
+            graph.data.labels = data_array_week_4[0];
+            graph.data.datasets[0].data = data_array_week_4[1];
+            graph.data.datasets[1].data = data_array_week_4[3];
+            graph.data.datasets[2].data = data_array_week_4[2];
+            graph.data.datasets[3].data = data_array_week_4[4];
+            graph.data.datasets[4].data = data_array_week_4[6];
+            graph.data.datasets[5].data = data_array_week_4[5];
+            graph.data.datasets[6].data = data_array_week_4[7];
+            graph.data.datasets[7].data = data_array_week_4[9];
+            graph.data.datasets[8].data = data_array_week_4[8];
+            graph.data.datasets[9].data = data_array_week_4[10];
+            graph.data.datasets[10].data = data_array_week_4[12];
+            graph.data.datasets[11].data = data_array_week_4[11];
+            graph.update();
+        }
+    </script>
 </body>
 
 </html>
