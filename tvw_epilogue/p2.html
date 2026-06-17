@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TVW – Chapter 19: Epilogue – Page 2</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    #nav {
+      width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    #nav button {
+      background: #222;
+      color: #ddd;
+      border: 1px solid #444;
+      padding: 7px 16px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: sans-serif;
+    }
+    #nav button:hover:not(:disabled) { background: #333; }
+    #nav button:disabled { opacity: 0.3; cursor: default; }
+    #nav span {
+      color: #888;
+      font-size: 13px;
+      font-family: sans-serif;
+    }
+    #animation_container {
+      position: relative;
+      width: 600px;
+      overflow: hidden;
+    }
+    #canvas {
+      display: none;
+      width: 600px;
+      height: 930px;
+    }
+    #evtH5Loading {
+      display: block;
+      width: 60px;
+      margin: 60px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav">
+    <button onclick="location.href='p1.html'">&#8592;</button>
+    <span>Page 2 / 6</span>
+    <button onclick="location.href='p3.html'">&#8594;</button>
+  </div>
+
+  <div id="animation_container">
+    <canvas id="canvas" width="600" height="930"></canvas>
+    <img id="evtH5Loading" alt="Loading..." src="https://images.neopets.com/maps/_preloader.gif">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+  <script src="https://images.neopets.com/plots/tvw/story/comics/ch19/pt01/pg02_eae458c105/ch19_pt01_pg02.js?v=20260611"></script>
+  <script>
+    var canvas, stage, exportRoot, fnStartAnimation;
+
+    function init() {
+      canvas = document.getElementById("canvas");
+      var comp = AdobeAn.getComposition(Object.keys(AdobeAn.compositions)[0]);
+      var lib = comp.getLibrary();
+      var loader = new createjs.LoadQueue(true, 'https://images.neopets.com/plots/tvw/story/comics/ch19/pt01/pg02_eae458c105/', true);
+      loader.addEventListener("fileload", function(evt) {
+        var images = comp.getImages();
+        if (evt && evt.item.type === "image") images[evt.item.id] = evt.result;
+      });
+      loader.addEventListener("complete", function(evt) {
+        var lib = comp.getLibrary();
+        var ss = comp.getSpriteSheet();
+        document.getElementById("evtH5Loading").style.display = "none";
+        canvas.style.display = "block";
+        var queue = evt.target;
+        var ssMetadata = lib.ssMetadata;
+        for (var i = 0; i < ssMetadata.length; i++) {
+          ss[ssMetadata[i].name] = new createjs.SpriteSheet({
+            images: [queue.getResult(ssMetadata[i].name)],
+            frames: ssMetadata[i].frames
+          });
+        }
+        exportRoot = new lib.ch19_pt01_pg02();
+        stage = new lib.Stage(canvas);
+        stage.enableMouseOver();
+        fnStartAnimation = function() {
+          for (var i = 0; i < exportRoot.getNumChildren(); i++) {
+            var c = exportRoot.getChildAt(i);
+            if (c.name != null && c.text) {
+              c.text.textBaseline = 'middle';
+              if (c.text.getMetrics().vOffset <= -6) {
+                c.text.lineHeight = parseInt(
+                  c.text.font.substring(c.text.font.indexOf('px') - 2, c.text.font.indexOf('px')).trim()
+                );
+              }
+            }
+          }
+          stage.addChild(exportRoot);
+          createjs.Ticker.framerate = lib.properties.fps;
+          createjs.Ticker.addEventListener("tick", stage);
+        };
+        AdobeAn.compositionLoaded(lib.properties.id);
+        fnStartAnimation();
+      });
+      loader.loadManifest(lib.properties.manifest);
+    }
+
+    $(function() { init(); });
+  </script>
+</body>
+</html>
