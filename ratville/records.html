@@ -50,31 +50,34 @@
     margin-bottom: 28px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: nowrap;
   }
-  .header-text{ max-width: 620px; }
+  .header-text{
+    max-width: 620px;
+    min-width: 0;
+  }
   .eyebrow{
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
+    font-size: clamp(8px, 2.4vw, 11px);
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--accent-bright);
     margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   h1{
     font-family: 'Zilla Slab', serif;
     font-weight: 700;
-    font-size: clamp(26px, 3.6vw, 38px);
-    margin: 0 0 10px;
-    letter-spacing: -0.005em;
-  }
-  header p.sub{
-    font-size: 14px;
-    color: var(--ink-dim);
-    line-height: 1.55;
+    font-size: clamp(17px, 6vw, 38px);
     margin: 0;
+    letter-spacing: -0.005em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   /* double rule under header, ledger-style */
   header::after{
@@ -86,21 +89,12 @@
     border-bottom: 1px solid var(--line-soft);
   }
 
-  .form-stamp{
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-dim);
-    border: 1px dashed var(--line);
-    border-radius: var(--radius);
-    padding: 10px 14px;
-    line-height: 1.8;
-    white-space: nowrap;
+  .coat-of-arms{
+    height: clamp(44px, 13vw, 86px);
+    width: auto;
     flex-shrink: 0;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.45));
   }
-  .form-stamp .row{ display:flex; justify-content: space-between; gap: 18px; }
-  .form-stamp .row b{ color: var(--ink); font-weight: 600; letter-spacing: 0.02em; }
-  .form-stamp .status-active{ color: var(--accent-bright); }
-  .form-stamp .status-amended{ color: var(--rust-bright); }
 
   /* ---------- panels ---------- */
   .panel{
@@ -329,6 +323,7 @@
     z-index: 50;
   }
   #toast.show{ opacity: 1; transform: translateX(-50%) translateY(0); }
+  #toast.toast-warn{ background: var(--rust); color: var(--ink); }
 
   ::-webkit-scrollbar{ width: 10px; height: 10px; }
   ::-webkit-scrollbar-track{ background: var(--bg-2); }
@@ -348,11 +343,7 @@
       <div class="eyebrow">Ratville Township — Office of Vital Records</div>
       <h1>Records Amendment Desk</h1>
     </div>
-    <div class="form-stamp">
-      <div class="row"><span>FORM</span><b>RV-2</b></div>
-      <div class="row"><span>FILED</span><b id="stampDate">—</b></div>
-      <div class="row"><span>STATUS</span><b id="stampStatus" class="status-active">AWAITING RECORDS</b></div>
-    </div>
+    <img class="coat-of-arms" src="https://raw.githubusercontent.com/rawxbee/rawxbee.github.io/master/ratville.webp" alt="Ratville coat of arms">
   </header>
 
   <div class="panel" id="loadPanel">
@@ -408,6 +399,8 @@
 
 <script>
 (function(){
+  const NICKNAME_LIMIT = 32;
+
   let recordType = null;       // 'users' | 'channels'
   let editField = null;        // 'nickname' | 'name'
   let working = [];            // live data, mutated on edit
@@ -420,9 +413,6 @@
   const clearBtn    = document.getElementById('clearBtn');
   const errorMsg    = document.getElementById('errorMsg');
   const fileNameLabel = document.getElementById('fileNameLabel');
-
-  const stampDate   = document.getElementById('stampDate');
-  const stampStatus = document.getElementById('stampStatus');
 
   const statsBar    = document.getElementById('statsBar');
   const statType    = document.getElementById('statType');
@@ -441,10 +431,12 @@
   const downloadBtn = document.getElementById('downloadBtn');
   const toast       = document.getElementById('toast');
 
-  function showToast(msg){
+  function showToast(msg, warn){
     toast.textContent = msg;
+    toast.classList.toggle('toast-warn', !!warn);
     toast.classList.add('show');
-    setTimeout(()=> toast.classList.remove('show'), 1600);
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(()=> toast.classList.remove('show'), 1800);
   }
 
   function showError(msg){
@@ -473,9 +465,6 @@
     recordType = null; editField = null; working = []; original = [];
     statsBar.style.display = 'none';
     mainGrid.style.display = 'none';
-    stampStatus.textContent = 'AWAITING RECORDS';
-    stampStatus.className = 'status-active';
-    stampDate.textContent = '—';
   });
 
   function detectType(arr){
@@ -511,9 +500,6 @@
     editField = recordType === 'users' ? 'nickname' : 'name';
     original = JSON.parse(JSON.stringify(parsed));
     working  = JSON.parse(JSON.stringify(parsed));
-
-    const today = new Date();
-    stampDate.textContent = today.toISOString().slice(0,10);
 
     statsBar.style.display = 'flex';
     mainGrid.style.display = 'grid';
@@ -554,16 +540,38 @@
       input.type = 'text';
       input.className = 'edit-input';
       input.value = rec[editField] !== undefined && rec[editField] !== null ? rec[editField] : '';
-      input.addEventListener('input', () => {
-        working[idx][editField] = input.value;
-        refreshRowState(tr, idx);
-        renderStats();
-        renderOutput();
-      });
+
+      if(recordType === 'users'){
+        input.addEventListener('input', () => {
+          if(input.value.length > NICKNAME_LIMIT){
+            input.value = input.value.slice(0, NICKNAME_LIMIT);
+            showToast('Nicknames are limited to ' + NICKNAME_LIMIT + ' characters', true);
+          }
+          working[idx][editField] = input.value;
+          refreshRowState(tr, idx);
+          renderStats();
+          renderOutput();
+        });
+      } else {
+        input.addEventListener('input', () => {
+          if(input.value.includes(' ')){
+            const pos = input.selectionStart;
+            input.value = input.value.split(' ').join('-');
+            if(pos !== null) input.setSelectionRange(pos, pos);
+          }
+          working[idx][editField] = input.value;
+          refreshRowState(tr, idx);
+          renderStats();
+          renderOutput();
+        });
+      }
+
       const stamp = document.createElement('span');
       stamp.className = 'stamp';
       stamp.textContent = 'amended';
       stamp.style.display = 'none';
+      const stampTilt = (Math.random() * 30 - 15).toFixed(1);
+      stamp.style.transform = 'rotate(' + stampTilt + 'deg)';
 
       const wrapper = document.createElement('div');
       wrapper.style.display = 'flex';
@@ -597,14 +605,6 @@
     statCount.textContent = working.length;
     const amended = working.filter((rec, i) => rec[editField] !== original[i][editField]).length;
     statAmended.textContent = amended;
-
-    if(amended > 0){
-      stampStatus.textContent = 'AMENDED · ' + amended + ' PENDING COPY';
-      stampStatus.className = 'status-amended';
-    } else {
-      stampStatus.textContent = 'ON FILE · NO CHANGES';
-      stampStatus.className = 'status-active';
-    }
   }
 
   function renderOutput(){
@@ -639,7 +639,7 @@
     navigator.clipboard.writeText(outputPre.textContent).then(() => {
       showToast('Copied to clipboard');
     }).catch(() => {
-      showToast('Copy failed — select and copy manually');
+      showToast('Copy failed — select and copy manually', true);
     });
   });
 
